@@ -33,7 +33,8 @@ final class HomeViewController: UIViewController {
             didTapBookmark: mainView.tableView.didTapBookmark,
             didTapDisclaimer: mainView.disclaimerButton.rx.tap.asSignal(),
             didTapDiseases: mainView.tableView.didTapDisease,
-            didTapProcedures: mainView.tableView.didTapProcedures
+            didTapProcedures: mainView.tableView.didTapProcedures,
+            didTapTerms: mainView.tableView.didTapTerms
         ))
         
         output.elements
@@ -100,6 +101,9 @@ private extension HomeViewController {
             navigationController?.pushViewController(vc, animated: true)
         case .procedures:
             let vc = ProceduresViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
+        case .terms:
+            let vc = TermsViewController.make()
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -1,0 +1,34 @@
+//
+//  GetTermsRequest.swift
+//  Dermatology
+//
+//  Created by Андрей Чернышев on 04.09.2023.
+//
+
+import Alamofire
+
+struct GetTermsRequest: APIRequestBody {
+    let userToken: String
+    let search: String?
+
+    var url: String {
+        GlobalDefinitions.domain + "/api/drugs" // TODO: terms
+    }
+    
+    var method: HTTPMethod {
+        .post
+    }
+    
+    var parameters: Parameters? {
+        var params = [
+            "_api_key": GlobalDefinitions.apiKey,
+            "_user_token": userToken
+        ]
+        
+        if let search = search {
+            params["search"] = search
+        }
+        
+        return params
+    }
+}

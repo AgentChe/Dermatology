@@ -7,7 +7,7 @@
 
 struct HomeTableElement {
     enum Block {
-        case drugGuide, interactionChecker, symptomChecker, bookmark, diseases, procedures
+        case drugGuide, interactionChecker, symptomChecker, bookmark, diseases, procedures, terms
     }
     
     let block: Block
@@ -43,6 +43,10 @@ struct HomeTableElement {
             title = "Home.Procedures.Title".localized
             text = "Home.Procedures.Text".localized
             imageName = "Home.Procedures"
+        case .terms:
+            title = "Home.Terms.Title".localized
+            text = "Home.Terms.Text".localized
+            imageName = "Home.Terms"
         }
     }
 }

@@ -53,6 +53,28 @@
 		DEB28CC32AA5FD5E00DA4EF8 /* ProceduresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CB92AA5FD5E00DA4EF8 /* ProceduresViewController.swift */; };
 		DEB28CC42AA5FD5E00DA4EF8 /* ProceduresTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CBC2AA5FD5E00DA4EF8 /* ProceduresTableCell.swift */; };
 		DEB28CC52AA5FD5E00DA4EF8 /* ProceduresTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CBD2AA5FD5E00DA4EF8 /* ProceduresTableView.swift */; };
+		DEB28CDB2AA604C800DA4EF8 /* TermsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CC72AA604C800DA4EF8 /* TermsManager.swift */; };
+		DEB28CDC2AA604C800DA4EF8 /* TermsMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CC82AA604C800DA4EF8 /* TermsMediator.swift */; };
+		DEB28CDD2AA604C800DA4EF8 /* TermDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CCA2AA604C800DA4EF8 /* TermDetails.swift */; };
+		DEB28CDE2AA604C800DA4EF8 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CCB2AA604C800DA4EF8 /* Term.swift */; };
+		DEB28CDF2AA604C800DA4EF8 /* TermSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CCC2AA604C800DA4EF8 /* TermSection.swift */; };
+		DEB28CE02AA604C800DA4EF8 /* TermBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CCD2AA604C800DA4EF8 /* TermBlock.swift */; };
+		DEB28CE12AA604C800DA4EF8 /* GetTermsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD02AA604C800DA4EF8 /* GetTermsResponse.swift */; };
+		DEB28CE22AA604C800DA4EF8 /* GetTermsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD12AA604C800DA4EF8 /* GetTermsRequest.swift */; };
+		DEB28CE32AA604C800DA4EF8 /* GetBookmarksTermsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD32AA604C800DA4EF8 /* GetBookmarksTermsResponse.swift */; };
+		DEB28CE42AA604C800DA4EF8 /* GetBookmarkTermsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD42AA604C800DA4EF8 /* GetBookmarkTermsRequest.swift */; };
+		DEB28CE52AA604C800DA4EF8 /* GetTermDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD62AA604C800DA4EF8 /* GetTermDetailsRequest.swift */; };
+		DEB28CE62AA604C800DA4EF8 /* GetTermDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD72AA604C800DA4EF8 /* GetTermDetailsResponse.swift */; };
+		DEB28CE72AA604C800DA4EF8 /* UnsaveTermRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CD92AA604C800DA4EF8 /* UnsaveTermRequest.swift */; };
+		DEB28CE82AA604C800DA4EF8 /* SaveTermRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CDA2AA604C800DA4EF8 /* SaveTermRequest.swift */; };
+		DEB28CF62AA6092100DA4EF8 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CEB2AA6092100DA4EF8 /* TermsView.swift */; };
+		DEB28CF72AA6092100DA4EF8 /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CEC2AA6092100DA4EF8 /* TermsViewModel.swift */; };
+		DEB28CF82AA6092100DA4EF8 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CED2AA6092100DA4EF8 /* TermsViewController.swift */; };
+		DEB28CF92AA6092100DA4EF8 /* TermsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF02AA6092100DA4EF8 /* TermsTableCell.swift */; };
+		DEB28CFA2AA6092100DA4EF8 /* TermsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF12AA6092100DA4EF8 /* TermsTableView.swift */; };
+		DEB28CFB2AA6092100DA4EF8 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF32AA6092100DA4EF8 /* TermViewController.swift */; };
+		DEB28CFC2AA6092100DA4EF8 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF42AA6092100DA4EF8 /* TermView.swift */; };
+		DEB28CFD2AA6092100DA4EF8 /* TermViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */; };
 		DEFE81CE2AA5B0D800FB96F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81CD2AA5B0D800FB96F0 /* Assets.xcassets */; };
 		DEFE81D12AA5B0D800FB96F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81CF2AA5B0D800FB96F0 /* LaunchScreen.storyboard */; };
 		DEFE81DA2AA5B1E900FB96F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81D92AA5B1E800FB96F0 /* GoogleService-Info.plist */; };
@@ -361,6 +383,28 @@
 		DEB28CB92AA5FD5E00DA4EF8 /* ProceduresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProceduresViewController.swift; sourceTree = "<group>"; };
 		DEB28CBC2AA5FD5E00DA4EF8 /* ProceduresTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProceduresTableCell.swift; sourceTree = "<group>"; };
 		DEB28CBD2AA5FD5E00DA4EF8 /* ProceduresTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProceduresTableView.swift; sourceTree = "<group>"; };
+		DEB28CC72AA604C800DA4EF8 /* TermsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsManager.swift; sourceTree = "<group>"; };
+		DEB28CC82AA604C800DA4EF8 /* TermsMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsMediator.swift; sourceTree = "<group>"; };
+		DEB28CCA2AA604C800DA4EF8 /* TermDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermDetails.swift; sourceTree = "<group>"; };
+		DEB28CCB2AA604C800DA4EF8 /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		DEB28CCC2AA604C800DA4EF8 /* TermSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermSection.swift; sourceTree = "<group>"; };
+		DEB28CCD2AA604C800DA4EF8 /* TermBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermBlock.swift; sourceTree = "<group>"; };
+		DEB28CD02AA604C800DA4EF8 /* GetTermsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTermsResponse.swift; sourceTree = "<group>"; };
+		DEB28CD12AA604C800DA4EF8 /* GetTermsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTermsRequest.swift; sourceTree = "<group>"; };
+		DEB28CD32AA604C800DA4EF8 /* GetBookmarksTermsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBookmarksTermsResponse.swift; sourceTree = "<group>"; };
+		DEB28CD42AA604C800DA4EF8 /* GetBookmarkTermsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBookmarkTermsRequest.swift; sourceTree = "<group>"; };
+		DEB28CD62AA604C800DA4EF8 /* GetTermDetailsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTermDetailsRequest.swift; sourceTree = "<group>"; };
+		DEB28CD72AA604C800DA4EF8 /* GetTermDetailsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTermDetailsResponse.swift; sourceTree = "<group>"; };
+		DEB28CD92AA604C800DA4EF8 /* UnsaveTermRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsaveTermRequest.swift; sourceTree = "<group>"; };
+		DEB28CDA2AA604C800DA4EF8 /* SaveTermRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTermRequest.swift; sourceTree = "<group>"; };
+		DEB28CEB2AA6092100DA4EF8 /* TermsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		DEB28CEC2AA6092100DA4EF8 /* TermsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
+		DEB28CED2AA6092100DA4EF8 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		DEB28CF02AA6092100DA4EF8 /* TermsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsTableCell.swift; sourceTree = "<group>"; };
+		DEB28CF12AA6092100DA4EF8 /* TermsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsTableView.swift; sourceTree = "<group>"; };
+		DEB28CF32AA6092100DA4EF8 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
+		DEB28CF42AA6092100DA4EF8 /* TermView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
+		DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewModel.swift; sourceTree = "<group>"; };
 		DEFE81C12AA5B0D700FB96F0 /* Dermatology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dermatology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFE81CD2AA5B0D800FB96F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEFE81D02AA5B0D800FB96F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -885,6 +929,122 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		DEB28CC62AA604C800DA4EF8 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CCE2AA604C800DA4EF8 /* Request */,
+				DEB28CC92AA604C800DA4EF8 /* Model */,
+				DEB28CC72AA604C800DA4EF8 /* TermsManager.swift */,
+				DEB28CC82AA604C800DA4EF8 /* TermsMediator.swift */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		DEB28CC92AA604C800DA4EF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CCA2AA604C800DA4EF8 /* TermDetails.swift */,
+				DEB28CCB2AA604C800DA4EF8 /* Term.swift */,
+				DEB28CCC2AA604C800DA4EF8 /* TermSection.swift */,
+				DEB28CCD2AA604C800DA4EF8 /* TermBlock.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEB28CCE2AA604C800DA4EF8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CCF2AA604C800DA4EF8 /* GetTerms */,
+				DEB28CD22AA604C800DA4EF8 /* GetBookmarksTerms */,
+				DEB28CD52AA604C800DA4EF8 /* GetTermDetails */,
+				DEB28CD82AA604C800DA4EF8 /* SaveUnsaveTerm */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DEB28CCF2AA604C800DA4EF8 /* GetTerms */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CD02AA604C800DA4EF8 /* GetTermsResponse.swift */,
+				DEB28CD12AA604C800DA4EF8 /* GetTermsRequest.swift */,
+			);
+			path = GetTerms;
+			sourceTree = "<group>";
+		};
+		DEB28CD22AA604C800DA4EF8 /* GetBookmarksTerms */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CD32AA604C800DA4EF8 /* GetBookmarksTermsResponse.swift */,
+				DEB28CD42AA604C800DA4EF8 /* GetBookmarkTermsRequest.swift */,
+			);
+			path = GetBookmarksTerms;
+			sourceTree = "<group>";
+		};
+		DEB28CD52AA604C800DA4EF8 /* GetTermDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CD62AA604C800DA4EF8 /* GetTermDetailsRequest.swift */,
+				DEB28CD72AA604C800DA4EF8 /* GetTermDetailsResponse.swift */,
+			);
+			path = GetTermDetails;
+			sourceTree = "<group>";
+		};
+		DEB28CD82AA604C800DA4EF8 /* SaveUnsaveTerm */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CD92AA604C800DA4EF8 /* UnsaveTermRequest.swift */,
+				DEB28CDA2AA604C800DA4EF8 /* SaveTermRequest.swift */,
+			);
+			path = SaveUnsaveTerm;
+			sourceTree = "<group>";
+		};
+		DEB28CE92AA6092100DA4EF8 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CEA2AA6092100DA4EF8 /* Terms */,
+				DEB28CF22AA6092100DA4EF8 /* Term */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		DEB28CEA2AA6092100DA4EF8 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CEE2AA6092100DA4EF8 /* Views */,
+				DEB28CEB2AA6092100DA4EF8 /* TermsView.swift */,
+				DEB28CEC2AA6092100DA4EF8 /* TermsViewModel.swift */,
+				DEB28CED2AA6092100DA4EF8 /* TermsViewController.swift */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		DEB28CEE2AA6092100DA4EF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CEF2AA6092100DA4EF8 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEB28CEF2AA6092100DA4EF8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CF02AA6092100DA4EF8 /* TermsTableCell.swift */,
+				DEB28CF12AA6092100DA4EF8 /* TermsTableView.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEB28CF22AA6092100DA4EF8 /* Term */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28CF32AA6092100DA4EF8 /* TermViewController.swift */,
+				DEB28CF42AA6092100DA4EF8 /* TermView.swift */,
+				DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */,
+			);
+			path = Term;
+			sourceTree = "<group>";
+		};
 		DEFE81B82AA5B0D700FB96F0 = {
 			isa = PBXGroup;
 			children = (
@@ -1107,6 +1267,7 @@
 		DEFE82252AA5B1FB00FB96F0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DEB28CC62AA604C800DA4EF8 /* Terms */,
 				DEB28C8E2AA5F9FD00DA4EF8 /* Procedure */,
 				DEB28C522AA5C86200DA4EF8 /* Diseases */,
 				DEFE82262AA5B1FB00FB96F0 /* Drugs */,
@@ -1467,6 +1628,7 @@
 		DEFE82902AA5B1FB00FB96F0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEB28CE92AA6092100DA4EF8 /* Terms */,
 				DEB28CB12AA5FD5E00DA4EF8 /* Procedures */,
 				DEB28C752AA5CE9F00DA4EF8 /* DIseases */,
 				DEFE82912AA5B1FB00FB96F0 /* Home */,
@@ -2287,6 +2449,7 @@
 				DEB28C892AA5D6BC00DA4EF8 /* DiseaseView.swift in Sources */,
 				DEFE83772AA5B1FB00FB96F0 /* TapAreaButton.swift in Sources */,
 				DEFE83DA2AA5B1FB00FB96F0 /* HomeTableView.swift in Sources */,
+				DEB28CDB2AA604C800DA4EF8 /* TermsManager.swift in Sources */,
 				DEFE83A82AA5B1FB00FB96F0 /* ProfileManager.swift in Sources */,
 				DEFE835C2AA5B1FB00FB96F0 /* UIColor+Extension.swift in Sources */,
 				DEFE839A2AA5B1FB00FB96F0 /* DrugsInteractionCheckerRequest.swift in Sources */,
@@ -2297,10 +2460,12 @@
 				DEFE840E2AA5B1FB00FB96F0 /* SCResultViewModel.swift in Sources */,
 				DEFE84032AA5B1FB00FB96F0 /* DrugViewController.swift in Sources */,
 				DEFE83982AA5B1FB00FB96F0 /* GetBookmarksInteractionsResponse.swift in Sources */,
+				DEB28CF82AA6092100DA4EF8 /* TermsViewController.swift in Sources */,
 				DEFE840C2AA5B1FB00FB96F0 /* DrugViewModel.swift in Sources */,
 				DEFE83992AA5B1FB00FB96F0 /* GetBookmarksInteractionsRequest.swift in Sources */,
 				DEFE83712AA5B1FB00FB96F0 /* RequestReview.swift in Sources */,
 				DEFE840D2AA5B1FB00FB96F0 /* SCResultViewController.swift in Sources */,
+				DEB28CDC2AA604C800DA4EF8 /* TermsMediator.swift in Sources */,
 				DEFE83722AA5B1FB00FB96F0 /* ImagePicker.swift in Sources */,
 				DEFE84152AA5B1FB00FB96F0 /* SCPersonalViewController.swift in Sources */,
 				DEFE83DF2AA5B1FB00FB96F0 /* SplashViewModel.swift in Sources */,
@@ -2312,6 +2477,7 @@
 				DEB28C772AA5CEAB00DA4EF8 /* DiseasesViewController.swift in Sources */,
 				DEFE84442AA5B1FB00FB96F0 /* OSlideView.swift in Sources */,
 				DEFE840B2AA5B1FB00FB96F0 /* DrugTableElement.swift in Sources */,
+				DEB28CE52AA604C800DA4EF8 /* GetTermDetailsRequest.swift in Sources */,
 				DEFE843C2AA5B1FB00FB96F0 /* TryAgainView.swift in Sources */,
 				DEFE83D82AA5B1FB00FB96F0 /* HomeViewController.swift in Sources */,
 				DEFE83A32AA5B1FB00FB96F0 /* PaygateOptionConfig.swift in Sources */,
@@ -2338,6 +2504,7 @@
 				DEFE83612AA5B1FB00FB96F0 /* UIViewRxExtension.swift in Sources */,
 				DEFE842E2AA5B1FB00FB96F0 /* SCConfirmChooseCell.swift in Sources */,
 				DEFE836A2AA5B1FB00FB96F0 /* ObservableRetrySingle.swift in Sources */,
+				DEB28CE42AA604C800DA4EF8 /* GetBookmarkTermsRequest.swift in Sources */,
 				DEFE83A12AA5B1FB00FB96F0 /* GetInteractionCheckerMedsRequest.swift in Sources */,
 				DEFE83632AA5B1FB00FB96F0 /* DefaultRequestWrapper.swift in Sources */,
 				DEFE836D2AA5B1FB00FB96F0 /* SignError.swift in Sources */,
@@ -2347,6 +2514,7 @@
 				DEFE84512AA5B1FB00FB96F0 /* InteractionCheckerTableElement.swift in Sources */,
 				DEFE84342AA5B1FB00FB96F0 /* SCSymptomsViewController.swift in Sources */,
 				DEFE83852AA5B1FB00FB96F0 /* BranchManager.swift in Sources */,
+				DEB28CDF2AA604C800DA4EF8 /* TermSection.swift in Sources */,
 				DEFE83DB2AA5B1FB00FB96F0 /* HomeTableCell.swift in Sources */,
 				DEFE83EE2AA5B1FB00FB96F0 /* PaygateOptionInfo.swift in Sources */,
 				DEFE83642AA5B1FB00FB96F0 /* APIRequestBody.swift in Sources */,
@@ -2403,8 +2571,10 @@
 				DEFE841F2AA5B1FB00FB96F0 /* SICDetailsSeparatorCell.swift in Sources */,
 				DEFE83792AA5B1FB00FB96F0 /* PaddingTextField.swift in Sources */,
 				DEB28CC02AA5FD5E00DA4EF8 /* ProcedureViewController.swift in Sources */,
+				DEB28CFB2AA6092100DA4EF8 /* TermViewController.swift in Sources */,
 				DEFE83FE2AA5B1FB00FB96F0 /* DrugsView.swift in Sources */,
 				DEFE841D2AA5B1FB00FB96F0 /* SICDetailsSectionCell.swift in Sources */,
+				DEB28CE02AA604C800DA4EF8 /* TermBlock.swift in Sources */,
 				DEFE835A2AA5B1FB00FB96F0 /* UIApplication+Extension.swift in Sources */,
 				DEFE83C62AA5B1FB00FB96F0 /* GetSymptomsRequest.swift in Sources */,
 				DEFE83D52AA5B1FB00FB96F0 /* SettingsViewController.swift in Sources */,
@@ -2413,6 +2583,8 @@
 				DEFE83742AA5B1FB00FB96F0 /* Toast.swift in Sources */,
 				DEFE83BC2AA5B1FB00FB96F0 /* SymtomsCheckerBlock.swift in Sources */,
 				DEFE835B2AA5B1FB00FB96F0 /* UIDevice+Extension.swift in Sources */,
+				DEB28CE62AA604C800DA4EF8 /* GetTermDetailsResponse.swift in Sources */,
+				DEB28CFD2AA6092100DA4EF8 /* TermViewModel.swift in Sources */,
 				DEFE84052AA5B1FB00FB96F0 /* DrugTableView.swift in Sources */,
 				DEFE842D2AA5B1FB00FB96F0 /* MostSymptomButton.swift in Sources */,
 				DEFE84222AA5B1FB00FB96F0 /* SICDetailsFilterView.swift in Sources */,
@@ -2435,6 +2607,7 @@
 				DEB28C852AA5D6B300DA4EF8 /* DiseaseViewController.swift in Sources */,
 				DEFE83B92AA5B1FB00FB96F0 /* SymptomsInteractionCondition.swift in Sources */,
 				DEFE83832AA5B1FB00FB96F0 /* Appearance.swift in Sources */,
+				DEB28CFC2AA6092100DA4EF8 /* TermView.swift in Sources */,
 				DEFE83CA2AA5B1FB00FB96F0 /* GetMedicalStatesResponse.swift in Sources */,
 				DEB28CAB2AA5F9FD00DA4EF8 /* GetProcedureDetailsRequest.swift in Sources */,
 				DEFE83FC2AA5B1FB00FB96F0 /* SelectUnitViewModel.swift in Sources */,
@@ -2442,6 +2615,8 @@
 				DEB28CC32AA5FD5E00DA4EF8 /* ProceduresViewController.swift in Sources */,
 				DEFE83AC2AA5B1FB00FB96F0 /* LoginRequest.swift in Sources */,
 				DEFE836B2AA5B1FB00FB96F0 /* XOREncryption.swift in Sources */,
+				DEB28CE72AA604C800DA4EF8 /* UnsaveTermRequest.swift in Sources */,
+				DEB28CF72AA6092100DA4EF8 /* TermsViewModel.swift in Sources */,
 				DEFE836F2AA5B1FB00FB96F0 /* ContentError.swift in Sources */,
 				DEFE83B82AA5B1FB00FB96F0 /* SymptomsInteractionConditionDetails.swift in Sources */,
 				DEFE83662AA5B1FB00FB96F0 /* Scalable.swift in Sources */,
@@ -2476,6 +2651,7 @@
 				DEB28CAE2AA5F9FD00DA4EF8 /* GetProceduresRequest.swift in Sources */,
 				DEFE83922AA5B1FB00FB96F0 /* GetBookmarksDrugsRequest.swift in Sources */,
 				DEFE83B02AA5B1FB00FB96F0 /* IAPManager.swift in Sources */,
+				DEB28CF62AA6092100DA4EF8 /* TermsView.swift in Sources */,
 				DEFE83BF2AA5B1FB00FB96F0 /* GetSymptomMedsResponse.swift in Sources */,
 				DEFE83F02AA5B1FB00FB96F0 /* PaygateInteractor.swift in Sources */,
 				DEFE83B32AA5B1FB00FB96F0 /* IAPActionResult.swift in Sources */,
@@ -2484,6 +2660,7 @@
 				DEFE83E62AA5B1FB00FB96F0 /* BookmarkTableView.swift in Sources */,
 				DEFE83ED2AA5B1FB00FB96F0 /* DefaultPaygate.swift in Sources */,
 				DEFE83F82AA5B1FB00FB96F0 /* SelectUnitTableCell.swift in Sources */,
+				DEB28CE82AA604C800DA4EF8 /* SaveTermRequest.swift in Sources */,
 				DEFE84462AA5B1FB00FB96F0 /* OSymptomCheckerView.swift in Sources */,
 				DEFE83682AA5B1FB00FB96F0 /* TextAttributes.swift in Sources */,
 				DEFE837B2AA5B1FB00FB96F0 /* CircleView.swift in Sources */,
@@ -2507,9 +2684,11 @@
 				DEFE84002AA5B1FB00FB96F0 /* DrugsTableView.swift in Sources */,
 				DEFE839F2AA5B1FB00FB96F0 /* UnsaveDrugRequest.swift in Sources */,
 				DEFE83622AA5B1FB00FB96F0 /* GlobalDefinitions.swift in Sources */,
+				DEB28CE12AA604C800DA4EF8 /* GetTermsResponse.swift in Sources */,
 				DEFE84062AA5B1FB00FB96F0 /* DrugTableTitleCell.swift in Sources */,
 				DEFE83A42AA5B1FB00FB96F0 /* Paygate.swift in Sources */,
 				DEFE84142AA5B1FB00FB96F0 /* SCResultTableElement.swift in Sources */,
+				DEB28CFA2AA6092100DA4EF8 /* TermsTableView.swift in Sources */,
 				DEFE84522AA5B1FB00FB96F0 /* NoInteractionsFoundViewController.swift in Sources */,
 				DEFE83D12AA5B1FB00FB96F0 /* SettingsViewModel.swift in Sources */,
 				DEFE84362AA5B1FB00FB96F0 /* SCSymptomsTagsCell.swift in Sources */,
@@ -2538,14 +2717,18 @@
 				DEFE838A2AA5B1FB00FB96F0 /* DrugsMediator.swift in Sources */,
 				DEFE838E2AA5B1FB00FB96F0 /* DrugsInteraction.swift in Sources */,
 				DEB28C822AA5CF4800DA4EF8 /* DiseasesTableCell.swift in Sources */,
+				DEB28CDD2AA604C800DA4EF8 /* TermDetails.swift in Sources */,
 				DEB28CC42AA5FD5E00DA4EF8 /* ProceduresTableCell.swift in Sources */,
 				DEFE84492AA5B1FB00FB96F0 /* InteractionCheckerViewController.swift in Sources */,
 				DEFE838C2AA5B1FB00FB96F0 /* Drug.swift in Sources */,
 				DEFE83802AA5B1FB00FB96F0 /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DEFE83C72AA5B1FB00FB96F0 /* GetBookmarksConditionsRequest.swift in Sources */,
+				DEB28CF92AA6092100DA4EF8 /* TermsTableCell.swift in Sources */,
 				DEB28CB02AA5F9FD00DA4EF8 /* GetBookmarksProceduresRequest.swift in Sources */,
 				DEFE83D32AA5B1FB00FB96F0 /* SettingsRouteCell.swift in Sources */,
+				DEB28CDE2AA604C800DA4EF8 /* Term.swift in Sources */,
 				DEFE83C22AA5B1FB00FB96F0 /* SymptomsCheckerResponse.swift in Sources */,
+				DEB28CE32AA604C800DA4EF8 /* GetBookmarksTermsResponse.swift in Sources */,
 				DEB28C722AA5CC0500DA4EF8 /* GetBookmarksDiseasesRequest.swift in Sources */,
 				DEFE84102AA5B1FB00FB96F0 /* SymptomCheckerCollector.swift in Sources */,
 				DEFE84172AA5B1FB00FB96F0 /* SCPersonalView.swift in Sources */,
@@ -2569,6 +2752,7 @@
 				DEB28CC12AA5FD5E00DA4EF8 /* ProceduresViewModel.swift in Sources */,
 				DEFE83E42AA5B1FB00FB96F0 /* BookmarkInteractionCell.swift in Sources */,
 				DEB28C582AA5C87E00DA4EF8 /* DiseasesMediator.swift in Sources */,
+				DEB28CE22AA604C800DA4EF8 /* GetTermsRequest.swift in Sources */,
 				DEFE839D2AA5B1FB00FB96F0 /* GetDrugsResponse.swift in Sources */,
 				DEFE844F2AA5B1FB00FB96F0 /* InteractionCheckerResultCell.swift in Sources */,
 				DEFE836C2AA5B1FB00FB96F0 /* Fonts.swift in Sources */,

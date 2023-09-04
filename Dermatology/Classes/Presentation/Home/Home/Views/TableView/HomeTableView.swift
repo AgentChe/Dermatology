@@ -18,6 +18,7 @@ final class HomeTableView: UITableView {
     private lazy var didTapBookmarkTrigger = PublishRelay<Void>()
     private lazy var didTapDiseaseTrigger = PublishRelay<Void>()
     private lazy var didTapProceduresTrigger = PublishRelay<Void>()
+    private lazy var didTapTermsTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -61,6 +62,10 @@ extension HomeTableView {
     var didTapProcedures: Signal<Void> {
         didTapProceduresTrigger.asSignal()
     }
+    
+    var didTapTerms: Signal<Void> {
+        didTapTermsTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -96,6 +101,8 @@ extension HomeTableView: UITableViewDelegate {
             didTapDiseaseTrigger.accept(Void())
         case .procedures:
             didTapProceduresTrigger.accept(Void())
+        case .terms:
+            didTapTermsTrigger.accept(Void())
         }
     }
 }

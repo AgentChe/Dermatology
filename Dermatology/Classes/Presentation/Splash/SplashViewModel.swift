@@ -28,6 +28,7 @@ final class SplashViewModel {
     private lazy var symptomsManager = SymptomsManager()
     private lazy var diseasesManager = DiseasesManager()
     private lazy var proceduresManager = ProceduresManager()
+    private lazy var termsManager = TermsManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
 }
@@ -131,6 +132,9 @@ private extension SplashViewModel {
             let procedures = proceduresManager
                 .obtainProcedures(forceUpdate: true)
                 .mapToVoid()
+            let terms = termsManager
+                .obtainTerms(forceUpdate: true)
+                .mapToVoid()
             
             return Single
                 .zip([
@@ -142,7 +146,8 @@ private extension SplashViewModel {
                     medicalStates,
                     symptomMeds,
                     diseases,
-                    procedures
+                    procedures,
+                    terms
                 ])
                 .mapToVoid()
         }
