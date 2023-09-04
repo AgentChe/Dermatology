@@ -64,9 +64,9 @@ private extension HomeTableCell {
         ])
         
         NSLayoutConstraint.activate([
-            iconView.widthAnchor.constraint(equalToConstant: 109.scale),
-            iconView.heightAnchor.constraint(equalToConstant: 178.scale),
-            iconView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 81.scale),
+            iconView.heightAnchor.constraint(equalToConstant: 88.scale),
+            iconView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16.scale),
             iconView.centerYAnchor.constraint(equalTo: container.centerYAnchor)
         ])
         

@@ -30,10 +30,10 @@ final class DrugTableSectionCell: UITableViewCell {
 
 // MARK: Public
 extension DrugTableSectionCell {
-    func setup(element: DrugSectionElement) {
-        label.attributedText = element.name.attributed(with: attrs)
+    func setup(name: String, opened: Bool) {
+        label.attributedText = name.attributed(with: attrs)
         
-        let iconName = element.opened ? "Drug.Arrow.Down" : "Drug.Arrow.Up" 
+        let iconName = opened ? "Drug.Arrow.Down" : "Drug.Arrow.Up"
         iconView.image = UIImage(named: iconName)
     }
 }

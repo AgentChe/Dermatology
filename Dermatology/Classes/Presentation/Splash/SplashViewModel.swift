@@ -26,6 +26,7 @@ final class SplashViewModel {
     private lazy var paygateManager = PaygateManager()
     private lazy var drugsManager = DrugsManager()
     private lazy var symptomsManager = SymptomsManager()
+    private lazy var diseasesManager = DiseasesManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
 }
@@ -123,6 +124,9 @@ private extension SplashViewModel {
             let symptomMeds = symptomsManager
                 .obtainSymptomMeds(forceUpdate: true)
                 .mapToVoid()
+            let diseases = diseasesManager
+                .obtainDiseases(forceUpdate: true)
+                .mapToVoid()
             
             return Single
                 .zip([
@@ -132,7 +136,8 @@ private extension SplashViewModel {
                     interactionCheckerMeds,
                     symptoms,
                     medicalStates,
-                    symptomMeds
+                    symptomMeds,
+                    diseases
                 ])
                 .mapToVoid()
         }

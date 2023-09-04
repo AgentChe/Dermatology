@@ -52,7 +52,7 @@ extension DrugTableView: UITableViewDataSource {
             return cell
         case .section(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DrugTableSectionCell.self)) as! DrugTableSectionCell
-            cell.setup(element: element)
+            cell.setup(name: element.name, opened: element.opened)
             return cell
         case .title(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DrugTableTitleCell.self)) as! DrugTableTitleCell
@@ -60,6 +60,10 @@ extension DrugTableView: UITableViewDataSource {
             return cell
         case .text(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: DrugTableTextCell.self)) as! DrugTableTextCell
+            cell.setup(element: element)
+            return cell
+        case .image(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: DrugTableImageCell.self)) as! DrugTableImageCell
             cell.setup(element: element)
             return cell
         case .separator:
@@ -97,6 +101,7 @@ private extension DrugTableView {
         register(DrugTableTitleCell.self, forCellReuseIdentifier: String(describing: DrugTableTitleCell.self))
         register(DrugTableTextCell.self, forCellReuseIdentifier: String(describing: DrugTableTextCell.self))
         register(DrugTableSeparatorCell.self, forCellReuseIdentifier: String(describing: DrugTableSeparatorCell.self))
+        register(DrugTableImageCell.self, forCellReuseIdentifier: String(describing: DrugTableImageCell.self))
         
         dataSource = self
         delegate = self

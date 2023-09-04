@@ -5,6 +5,8 @@
 //  Created by Андрей Чернышев on 23.05.2023.
 //
 
+import Foundation
+
 final class DrugTableSection {
     var opened: Bool
     let openedElements: [DrugTableElement]
@@ -26,6 +28,7 @@ enum DrugTableElement {
     case section(DrugSectionElement)
     case title(String)
     case text(String)
+    case image(URL)
     case separator
 }
 

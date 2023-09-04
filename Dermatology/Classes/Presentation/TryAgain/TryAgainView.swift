@@ -57,7 +57,7 @@ private extension TryAgainView {
             imageView.widthAnchor.constraint(equalToConstant: 344.scale),
             imageView.heightAnchor.constraint(equalToConstant: 262.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 140.scale : 30.scale)
+            imageView.topAnchor.constraint(equalTo: topAnchor)
         ])
         
         NSLayoutConstraint.activate([

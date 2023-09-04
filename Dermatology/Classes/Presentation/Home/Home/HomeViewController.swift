@@ -31,7 +31,8 @@ final class HomeViewController: UIViewController {
             didTapInteractionChecker: mainView.tableView.didTapInteractionChecker,
             didTapSymptomChecker: mainView.tableView.didTapSymptomChecker,
             didTapBookmark: mainView.tableView.didTapBookmark,
-            didTapDisclaimer: mainView.disclaimerButton.rx.tap.asSignal())
+            didTapDisclaimer: mainView.disclaimerButton.rx.tap.asSignal(),
+            didTapDiseases: mainView.tableView.didTapDisease)
         )
         
         output.elements
@@ -93,6 +94,9 @@ private extension HomeViewController {
         case .disclaimer:
             let vc = DisclaimerViewController.make()
             present(vc, animated: true)
+        case .diseases:
+            let vc = DiseasesViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

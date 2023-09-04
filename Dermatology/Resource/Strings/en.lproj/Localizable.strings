@@ -77,6 +77,8 @@
 "Home.Bookmark.Title" = "Bookmark";
 "Home.Bookmark.Text" = "Save and get easy and fast access to selected medications and more";
 "Home.Disclaimer" = "Disclaimer";
+"Home.Diseases.Title" = "Disease Guide";
+"Home.Diseases.Text" = "Discover an extensive guide covering various dermatological diseases and conditions";
 
 // MARK: Settings
 "Settings.Title" = "Settings";
@@ -164,3 +166,6 @@
 "Bookmark.Empty.Interactions.Text" = "Saved interactions will appear here";
 "Bookmark.Empty.Conditions.Title" = "Nothing here yet";
 "Bookmark.Empty.Conditions.Text" = "Saved conditions will appear here";
+
+// MARK: Diseases
+"Diseases.Title" = "Diseases Guide";

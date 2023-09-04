@@ -8,6 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		5AD0EFA514E40BC8135295F4 /* Pods_Dermatology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5568D79262B8CE264F753E42 /* Pods_Dermatology.framework */; };
+		DEB28C562AA5C87800DA4EF8 /* DiseasesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C552AA5C87800DA4EF8 /* DiseasesManager.swift */; };
+		DEB28C582AA5C87E00DA4EF8 /* DiseasesMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C572AA5C87E00DA4EF8 /* DiseasesMediator.swift */; };
+		DEB28C5A2AA5C88900DA4EF8 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C592AA5C88900DA4EF8 /* Disease.swift */; };
+		DEB28C5C2AA5C88F00DA4EF8 /* DiseaseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C5B2AA5C88F00DA4EF8 /* DiseaseDetails.swift */; };
+		DEB28C5E2AA5C89900DA4EF8 /* DiseaseBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C5D2AA5C89900DA4EF8 /* DiseaseBlock.swift */; };
+		DEB28C602AA5C8A100DA4EF8 /* DiseaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C5F2AA5C8A100DA4EF8 /* DiseaseSection.swift */; };
+		DEB28C662AA5C9AF00DA4EF8 /* GetDiseasesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C652AA5C9AF00DA4EF8 /* GetDiseasesRequest.swift */; };
+		DEB28C682AA5C9B500DA4EF8 /* GetDiseasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C672AA5C9B500DA4EF8 /* GetDiseasesResponse.swift */; };
+		DEB28C6A2AA5CA1700DA4EF8 /* SaveDiseaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C692AA5CA1700DA4EF8 /* SaveDiseaseRequest.swift */; };
+		DEB28C6C2AA5CA2000DA4EF8 /* UnsaveDiseaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C6B2AA5CA2000DA4EF8 /* UnsaveDiseaseRequest.swift */; };
+		DEB28C6E2AA5CAB500DA4EF8 /* GetDiseaseDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C6D2AA5CAB500DA4EF8 /* GetDiseaseDetailsRequest.swift */; };
+		DEB28C702AA5CABC00DA4EF8 /* GetDiseaseDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C6F2AA5CABC00DA4EF8 /* GetDiseaseDetailsResponse.swift */; };
+		DEB28C722AA5CC0500DA4EF8 /* GetBookmarksDiseasesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C712AA5CC0500DA4EF8 /* GetBookmarksDiseasesRequest.swift */; };
+		DEB28C742AA5CC0D00DA4EF8 /* GetBookmarksDiseasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C732AA5CC0D00DA4EF8 /* GetBookmarksDiseasesResponse.swift */; };
+		DEB28C772AA5CEAB00DA4EF8 /* DiseasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C762AA5CEAB00DA4EF8 /* DiseasesViewController.swift */; };
+		DEB28C792AA5CEE900DA4EF8 /* DiseasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C782AA5CEE900DA4EF8 /* DiseasesViewModel.swift */; };
+		DEB28C7B2AA5CEEE00DA4EF8 /* DiseasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C7A2AA5CEEE00DA4EF8 /* DiseasesView.swift */; };
+		DEB28C802AA5CF4300DA4EF8 /* DiseasesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C7F2AA5CF4300DA4EF8 /* DiseasesTableView.swift */; };
+		DEB28C822AA5CF4800DA4EF8 /* DiseasesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C812AA5CF4800DA4EF8 /* DiseasesTableCell.swift */; };
+		DEB28C852AA5D6B300DA4EF8 /* DiseaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C842AA5D6B300DA4EF8 /* DiseaseViewController.swift */; };
+		DEB28C872AA5D6B800DA4EF8 /* DiseaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C862AA5D6B800DA4EF8 /* DiseaseViewModel.swift */; };
+		DEB28C892AA5D6BC00DA4EF8 /* DiseaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C882AA5D6BC00DA4EF8 /* DiseaseView.swift */; };
+		DEB28C8B2AA5D97400DA4EF8 /* DrugTableImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28C8A2AA5D97400DA4EF8 /* DrugTableImageCell.swift */; };
 		DEFE81CE2AA5B0D800FB96F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81CD2AA5B0D800FB96F0 /* Assets.xcassets */; };
 		DEFE81D12AA5B0D800FB96F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81CF2AA5B0D800FB96F0 /* LaunchScreen.storyboard */; };
 		DEFE81DA2AA5B1E900FB96F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81D92AA5B1E800FB96F0 /* GoogleService-Info.plist */; };
@@ -271,6 +294,29 @@
 /* Begin PBXFileReference section */
 		1AE3A5FC357B9047B016831A /* Pods-Dermatology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dermatology.release.xcconfig"; path = "Target Support Files/Pods-Dermatology/Pods-Dermatology.release.xcconfig"; sourceTree = "<group>"; };
 		5568D79262B8CE264F753E42 /* Pods_Dermatology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dermatology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB28C552AA5C87800DA4EF8 /* DiseasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesManager.swift; sourceTree = "<group>"; };
+		DEB28C572AA5C87E00DA4EF8 /* DiseasesMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesMediator.swift; sourceTree = "<group>"; };
+		DEB28C592AA5C88900DA4EF8 /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		DEB28C5B2AA5C88F00DA4EF8 /* DiseaseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseDetails.swift; sourceTree = "<group>"; };
+		DEB28C5D2AA5C89900DA4EF8 /* DiseaseBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseBlock.swift; sourceTree = "<group>"; };
+		DEB28C5F2AA5C8A100DA4EF8 /* DiseaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseSection.swift; sourceTree = "<group>"; };
+		DEB28C652AA5C9AF00DA4EF8 /* GetDiseasesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDiseasesRequest.swift; sourceTree = "<group>"; };
+		DEB28C672AA5C9B500DA4EF8 /* GetDiseasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDiseasesResponse.swift; sourceTree = "<group>"; };
+		DEB28C692AA5CA1700DA4EF8 /* SaveDiseaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDiseaseRequest.swift; sourceTree = "<group>"; };
+		DEB28C6B2AA5CA2000DA4EF8 /* UnsaveDiseaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsaveDiseaseRequest.swift; sourceTree = "<group>"; };
+		DEB28C6D2AA5CAB500DA4EF8 /* GetDiseaseDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDiseaseDetailsRequest.swift; sourceTree = "<group>"; };
+		DEB28C6F2AA5CABC00DA4EF8 /* GetDiseaseDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDiseaseDetailsResponse.swift; sourceTree = "<group>"; };
+		DEB28C712AA5CC0500DA4EF8 /* GetBookmarksDiseasesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookmarksDiseasesRequest.swift; sourceTree = "<group>"; };
+		DEB28C732AA5CC0D00DA4EF8 /* GetBookmarksDiseasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookmarksDiseasesResponse.swift; sourceTree = "<group>"; };
+		DEB28C762AA5CEAB00DA4EF8 /* DiseasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesViewController.swift; sourceTree = "<group>"; };
+		DEB28C782AA5CEE900DA4EF8 /* DiseasesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesViewModel.swift; sourceTree = "<group>"; };
+		DEB28C7A2AA5CEEE00DA4EF8 /* DiseasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesView.swift; sourceTree = "<group>"; };
+		DEB28C7F2AA5CF4300DA4EF8 /* DiseasesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesTableView.swift; sourceTree = "<group>"; };
+		DEB28C812AA5CF4800DA4EF8 /* DiseasesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesTableCell.swift; sourceTree = "<group>"; };
+		DEB28C842AA5D6B300DA4EF8 /* DiseaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseViewController.swift; sourceTree = "<group>"; };
+		DEB28C862AA5D6B800DA4EF8 /* DiseaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseViewModel.swift; sourceTree = "<group>"; };
+		DEB28C882AA5D6BC00DA4EF8 /* DiseaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseView.swift; sourceTree = "<group>"; };
+		DEB28C8A2AA5D97400DA4EF8 /* DrugTableImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugTableImageCell.swift; sourceTree = "<group>"; };
 		DEFE81C12AA5B0D700FB96F0 /* Dermatology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dermatology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFE81CD2AA5B0D800FB96F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEFE81D02AA5B0D800FB96F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -563,6 +609,122 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DEB28C522AA5C86200DA4EF8 /* Diseases */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C542AA5C86F00DA4EF8 /* Request */,
+				DEB28C532AA5C86B00DA4EF8 /* Model */,
+				DEB28C552AA5C87800DA4EF8 /* DiseasesManager.swift */,
+				DEB28C572AA5C87E00DA4EF8 /* DiseasesMediator.swift */,
+			);
+			path = Diseases;
+			sourceTree = "<group>";
+		};
+		DEB28C532AA5C86B00DA4EF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C592AA5C88900DA4EF8 /* Disease.swift */,
+				DEB28C5B2AA5C88F00DA4EF8 /* DiseaseDetails.swift */,
+				DEB28C5D2AA5C89900DA4EF8 /* DiseaseBlock.swift */,
+				DEB28C5F2AA5C8A100DA4EF8 /* DiseaseSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEB28C542AA5C86F00DA4EF8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C642AA5C97C00DA4EF8 /* GetDiseases */,
+				DEB28C632AA5C96800DA4EF8 /* SaveUnsaveDisease */,
+				DEB28C622AA5C95600DA4EF8 /* GetDiseaseDetails */,
+				DEB28C612AA5C94A00DA4EF8 /* GetBookmarksDiseases */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DEB28C612AA5C94A00DA4EF8 /* GetBookmarksDiseases */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C712AA5CC0500DA4EF8 /* GetBookmarksDiseasesRequest.swift */,
+				DEB28C732AA5CC0D00DA4EF8 /* GetBookmarksDiseasesResponse.swift */,
+			);
+			path = GetBookmarksDiseases;
+			sourceTree = "<group>";
+		};
+		DEB28C622AA5C95600DA4EF8 /* GetDiseaseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C6D2AA5CAB500DA4EF8 /* GetDiseaseDetailsRequest.swift */,
+				DEB28C6F2AA5CABC00DA4EF8 /* GetDiseaseDetailsResponse.swift */,
+			);
+			path = GetDiseaseDetails;
+			sourceTree = "<group>";
+		};
+		DEB28C632AA5C96800DA4EF8 /* SaveUnsaveDisease */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C692AA5CA1700DA4EF8 /* SaveDiseaseRequest.swift */,
+				DEB28C6B2AA5CA2000DA4EF8 /* UnsaveDiseaseRequest.swift */,
+			);
+			path = SaveUnsaveDisease;
+			sourceTree = "<group>";
+		};
+		DEB28C642AA5C97C00DA4EF8 /* GetDiseases */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C652AA5C9AF00DA4EF8 /* GetDiseasesRequest.swift */,
+				DEB28C672AA5C9B500DA4EF8 /* GetDiseasesResponse.swift */,
+			);
+			path = GetDiseases;
+			sourceTree = "<group>";
+		};
+		DEB28C752AA5CE9F00DA4EF8 /* DIseases */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C832AA5D6A800DA4EF8 /* Disease */,
+				DEB28C7C2AA5CEFF00DA4EF8 /* DIseases */,
+			);
+			path = DIseases;
+			sourceTree = "<group>";
+		};
+		DEB28C7C2AA5CEFF00DA4EF8 /* DIseases */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C7D2AA5CF3200DA4EF8 /* Views */,
+				DEB28C762AA5CEAB00DA4EF8 /* DiseasesViewController.swift */,
+				DEB28C782AA5CEE900DA4EF8 /* DiseasesViewModel.swift */,
+				DEB28C7A2AA5CEEE00DA4EF8 /* DiseasesView.swift */,
+			);
+			path = DIseases;
+			sourceTree = "<group>";
+		};
+		DEB28C7D2AA5CF3200DA4EF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C7E2AA5CF3800DA4EF8 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEB28C7E2AA5CF3800DA4EF8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C7F2AA5CF4300DA4EF8 /* DiseasesTableView.swift */,
+				DEB28C812AA5CF4800DA4EF8 /* DiseasesTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEB28C832AA5D6A800DA4EF8 /* Disease */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28C842AA5D6B300DA4EF8 /* DiseaseViewController.swift */,
+				DEB28C862AA5D6B800DA4EF8 /* DiseaseViewModel.swift */,
+				DEB28C882AA5D6BC00DA4EF8 /* DiseaseView.swift */,
+			);
+			path = Disease;
+			sourceTree = "<group>";
+		};
 		DEFE81B82AA5B0D700FB96F0 = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +947,7 @@
 		DEFE82252AA5B1FB00FB96F0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DEB28C522AA5C86200DA4EF8 /* Diseases */,
 				DEFE82262AA5B1FB00FB96F0 /* Drugs */,
 				DEFE824A2AA5B1FB00FB96F0 /* Paygate */,
 				DEFE82542AA5B1FB00FB96F0 /* Profile */,
@@ -799,10 +962,10 @@
 		DEFE82262AA5B1FB00FB96F0 /* Drugs */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE82312AA5B1FB00FB96F0 /* Request */,
+				DEFE82292AA5B1FB00FB96F0 /* Model */,
 				DEFE82272AA5B1FB00FB96F0 /* DrugsManager.swift */,
 				DEFE82282AA5B1FB00FB96F0 /* DrugsMediator.swift */,
-				DEFE82292AA5B1FB00FB96F0 /* Model */,
-				DEFE82312AA5B1FB00FB96F0 /* Request */,
 			);
 			path = Drugs;
 			sourceTree = "<group>";
@@ -1143,6 +1306,7 @@
 		DEFE82902AA5B1FB00FB96F0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEB28C752AA5CE9F00DA4EF8 /* DIseases */,
 				DEFE82912AA5B1FB00FB96F0 /* Home */,
 				DEFE82A42AA5B1FB00FB96F0 /* Splash */,
 				DEFE82AB2AA5B1FB00FB96F0 /* Bookmark */,
@@ -1369,10 +1533,10 @@
 		DEFE82D32AA5B1FB00FB96F0 /* Drugs */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE82D72AA5B1FB00FB96F0 /* Views */,
 				DEFE82D42AA5B1FB00FB96F0 /* DrugsViewModel.swift */,
 				DEFE82D52AA5B1FB00FB96F0 /* DrugsView.swift */,
 				DEFE82D62AA5B1FB00FB96F0 /* DrugsViewController.swift */,
-				DEFE82D72AA5B1FB00FB96F0 /* Views */,
 			);
 			path = Drugs;
 			sourceTree = "<group>";
@@ -1398,10 +1562,10 @@
 		DEFE82DC2AA5B1FB00FB96F0 /* Drug */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE82DD2AA5B1FB00FB96F0 /* DrugViewController.swift */,
-				DEFE82DE2AA5B1FB00FB96F0 /* DrugView.swift */,
 				DEFE82DF2AA5B1FB00FB96F0 /* Views */,
+				DEFE82DD2AA5B1FB00FB96F0 /* DrugViewController.swift */,
 				DEFE82E92AA5B1FB00FB96F0 /* DrugViewModel.swift */,
+				DEFE82DE2AA5B1FB00FB96F0 /* DrugView.swift */,
 			);
 			path = Drug;
 			sourceTree = "<group>";
@@ -1417,8 +1581,8 @@
 		DEFE82E02AA5B1FB00FB96F0 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE82E12AA5B1FB00FB96F0 /* DrugTableView.swift */,
 				DEFE82E22AA5B1FB00FB96F0 /* Cells */,
+				DEFE82E12AA5B1FB00FB96F0 /* DrugTableView.swift */,
 				DEFE82E82AA5B1FB00FB96F0 /* DrugTableElement.swift */,
 			);
 			path = TableView;
@@ -1432,6 +1596,7 @@
 				DEFE82E52AA5B1FB00FB96F0 /* DrugTableTextCell.swift */,
 				DEFE82E62AA5B1FB00FB96F0 /* DrugTableNameCell.swift */,
 				DEFE82E72AA5B1FB00FB96F0 /* DrugTableSectionCell.swift */,
+				DEB28C8A2AA5D97400DA4EF8 /* DrugTableImageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1953,12 +2118,16 @@
 			files = (
 				DEFE83B62AA5B1FB00FB96F0 /* IAPErrorHelper.swift in Sources */,
 				DEFE83862AA5B1FB00FB96F0 /* AmplitudeManager.swift in Sources */,
+				DEB28C602AA5C8A100DA4EF8 /* DiseaseSection.swift in Sources */,
 				DEFE83EB2AA5B1FB00FB96F0 /* BookmarkViewModel.swift in Sources */,
+				DEB28C5E2AA5C89900DA4EF8 /* DiseaseBlock.swift in Sources */,
+				DEB28C892AA5D6BC00DA4EF8 /* DiseaseView.swift in Sources */,
 				DEFE83772AA5B1FB00FB96F0 /* TapAreaButton.swift in Sources */,
 				DEFE83DA2AA5B1FB00FB96F0 /* HomeTableView.swift in Sources */,
 				DEFE83A82AA5B1FB00FB96F0 /* ProfileManager.swift in Sources */,
 				DEFE835C2AA5B1FB00FB96F0 /* UIColor+Extension.swift in Sources */,
 				DEFE839A2AA5B1FB00FB96F0 /* DrugsInteractionCheckerRequest.swift in Sources */,
+				DEB28C682AA5C9B500DA4EF8 /* GetDiseasesResponse.swift in Sources */,
 				DEFE83CF2AA5B1FB00FB96F0 /* SessionManager.swift in Sources */,
 				DEFE838D2AA5B1FB00FB96F0 /* DrugBlock.swift in Sources */,
 				DEFE842A2AA5B1FB00FB96F0 /* PregnantView.swift in Sources */,
@@ -1976,12 +2145,14 @@
 				DEFE837F2AA5B1FB00FB96F0 /* PushNotificationsManager.swift in Sources */,
 				DEFE83BD2AA5B1FB00FB96F0 /* Symptom.swift in Sources */,
 				DEFE84132AA5B1FB00FB96F0 /* SCResultTableView.swift in Sources */,
+				DEB28C772AA5CEAB00DA4EF8 /* DiseasesViewController.swift in Sources */,
 				DEFE84442AA5B1FB00FB96F0 /* OSlideView.swift in Sources */,
 				DEFE840B2AA5B1FB00FB96F0 /* DrugTableElement.swift in Sources */,
 				DEFE843C2AA5B1FB00FB96F0 /* TryAgainView.swift in Sources */,
 				DEFE83D82AA5B1FB00FB96F0 /* HomeViewController.swift in Sources */,
 				DEFE83A32AA5B1FB00FB96F0 /* PaygateOptionConfig.swift in Sources */,
 				DEFE84252AA5B1FB00FB96F0 /* SCConfirmViewModel.swift in Sources */,
+				DEB28C6C2AA5CA2000DA4EF8 /* UnsaveDiseaseRequest.swift in Sources */,
 				DEFE83BE2AA5B1FB00FB96F0 /* SymptomMed.swift in Sources */,
 				DEFE83602AA5B1FB00FB96F0 /* String+Extension.swift in Sources */,
 				DEFE84242AA5B1FB00FB96F0 /* SCConfirmView.swift in Sources */,
@@ -2016,6 +2187,7 @@
 				DEFE841C2AA5B1FB00FB96F0 /* SICDetailsViewController.swift in Sources */,
 				DEFE835D2AA5B1FB00FB96F0 /* Date+Extension.swift in Sources */,
 				DEFE84262AA5B1FB00FB96F0 /* SCConfirmDrugsCell.swift in Sources */,
+				DEB28C702AA5CABC00DA4EF8 /* GetDiseaseDetailsResponse.swift in Sources */,
 				DEFE84352AA5B1FB00FB96F0 /* SCSymptomsSelectCell.swift in Sources */,
 				DEFE84022AA5B1FB00FB96F0 /* DrugsSearchView.swift in Sources */,
 				DEFE83E32AA5B1FB00FB96F0 /* BookmarkDrugCell.swift in Sources */,
@@ -2026,8 +2198,10 @@
 				DEFE840A2AA5B1FB00FB96F0 /* DrugTableSectionCell.swift in Sources */,
 				DEFE837E2AA5B1FB00FB96F0 /* AppDelegate.swift in Sources */,
 				DEFE83E92AA5B1FB00FB96F0 /* BookmarkFilterView.swift in Sources */,
+				DEB28C872AA5D6B800DA4EF8 /* DiseaseViewModel.swift in Sources */,
 				DEFE83E22AA5B1FB00FB96F0 /* BookmarkView.swift in Sources */,
 				DEFE83692AA5B1FB00FB96F0 /* ScreenSize.swift in Sources */,
+				DEB28C6A2AA5CA1700DA4EF8 /* SaveDiseaseRequest.swift in Sources */,
 				DEFE83C02AA5B1FB00FB96F0 /* GetSymptomMedsRequest.swift in Sources */,
 				DEFE83652AA5B1FB00FB96F0 /* RestAPITransport.swift in Sources */,
 				DEFE83F52AA5B1FB00FB96F0 /* SelectUnitView.swift in Sources */,
@@ -2041,8 +2215,10 @@
 				DEFE83B72AA5B1FB00FB96F0 /* SymptomsManager.swift in Sources */,
 				DEFE83D92AA5B1FB00FB96F0 /* HomeTableElement.swift in Sources */,
 				DEFE83A62AA5B1FB00FB96F0 /* GetPaygateRequest.swift in Sources */,
+				DEB28C5A2AA5C88900DA4EF8 /* Disease.swift in Sources */,
 				DEFE84502AA5B1FB00FB96F0 /* InteractionCheckerTableView.swift in Sources */,
 				DEFE84182AA5B1FB00FB96F0 /* SelectAgeAlert.swift in Sources */,
+				DEB28C7B2AA5CEEE00DA4EF8 /* DiseasesView.swift in Sources */,
 				DEFE844E2AA5B1FB00FB96F0 /* InteractionCheckerDrugCell.swift in Sources */,
 				DEFE83872AA5B1FB00FB96F0 /* FirebaseManager.swift in Sources */,
 				DEFE83EF2AA5B1FB00FB96F0 /* PaygateViewControllerDelegate.swift in Sources */,
@@ -2053,6 +2229,8 @@
 				DEFE83DD2AA5B1FB00FB96F0 /* SplashActivity.swift in Sources */,
 				DEFE83F32AA5B1FB00FB96F0 /* PaygateProductButton.swift in Sources */,
 				DEFE835F2AA5B1FB00FB96F0 /* ObservableAndSingle+Extension.swift in Sources */,
+				DEB28C562AA5C87800DA4EF8 /* DiseasesManager.swift in Sources */,
+				DEB28C6E2AA5CAB500DA4EF8 /* GetDiseaseDetailsRequest.swift in Sources */,
 				DEFE841F2AA5B1FB00FB96F0 /* SICDetailsSeparatorCell.swift in Sources */,
 				DEFE83792AA5B1FB00FB96F0 /* PaddingTextField.swift in Sources */,
 				DEFE83FE2AA5B1FB00FB96F0 /* DrugsView.swift in Sources */,
@@ -2073,14 +2251,17 @@
 				DEFE842B2AA5B1FB00FB96F0 /* SCConfirmPregnantCell.swift in Sources */,
 				DEFE83E02AA5B1FB00FB96F0 /* SplashView.swift in Sources */,
 				DEFE839B2AA5B1FB00FB96F0 /* DrugsInteractionCheckerResponse.swift in Sources */,
+				DEB28C662AA5C9AF00DA4EF8 /* GetDiseasesRequest.swift in Sources */,
 				DEFE83D02AA5B1FB00FB96F0 /* SettingsView.swift in Sources */,
 				DEFE83A22AA5B1FB00FB96F0 /* PaygateOptionLineComponent.swift in Sources */,
 				DEFE84212AA5B1FB00FB96F0 /* SICDetailsTableElement.swift in Sources */,
 				DEFE83D42AA5B1FB00FB96F0 /* SettingsTableView.swift in Sources */,
 				DEFE83F22AA5B1FB00FB96F0 /* PaygateViewController.swift in Sources */,
 				DEFE83A92AA5B1FB00FB96F0 /* Profile.swift in Sources */,
+				DEB28C792AA5CEE900DA4EF8 /* DiseasesViewModel.swift in Sources */,
 				DEFE837A2AA5B1FB00FB96F0 /* PaddingLabel.swift in Sources */,
 				DEFE84112AA5B1FB00FB96F0 /* SCResultTitleCell.swift in Sources */,
+				DEB28C852AA5D6B300DA4EF8 /* DiseaseViewController.swift in Sources */,
 				DEFE83B92AA5B1FB00FB96F0 /* SymptomsInteractionCondition.swift in Sources */,
 				DEFE83832AA5B1FB00FB96F0 /* Appearance.swift in Sources */,
 				DEFE83CA2AA5B1FB00FB96F0 /* GetMedicalStatesResponse.swift in Sources */,
@@ -2110,6 +2291,7 @@
 				DEFE841E2AA5B1FB00FB96F0 /* SICDetailsTextCell.swift in Sources */,
 				DEFE83952AA5B1FB00FB96F0 /* GetDrugDetailsRequest.swift in Sources */,
 				DEFE843B2AA5B1FB00FB96F0 /* SCSymptomsTableView.swift in Sources */,
+				DEB28C5C2AA5C88F00DA4EF8 /* DiseaseDetails.swift in Sources */,
 				DEFE84282AA5B1FB00FB96F0 /* DrugTagView.swift in Sources */,
 				DEFE836E2AA5B1FB00FB96F0 /* NetworkError.swift in Sources */,
 				DEFE844D2AA5B1FB00FB96F0 /* InteractionCheckerCheckCell.swift in Sources */,
@@ -2127,6 +2309,7 @@
 				DEFE84462AA5B1FB00FB96F0 /* OSymptomCheckerView.swift in Sources */,
 				DEFE83682AA5B1FB00FB96F0 /* TextAttributes.swift in Sources */,
 				DEFE837B2AA5B1FB00FB96F0 /* CircleView.swift in Sources */,
+				DEB28C802AA5CF4300DA4EF8 /* DiseasesTableView.swift in Sources */,
 				DEFE838F2AA5B1FB00FB96F0 /* DrugsSideEffect.swift in Sources */,
 				DEFE83972AA5B1FB00FB96F0 /* SaveInteractionDrugsRequest.swift in Sources */,
 				DEFE83C42AA5B1FB00FB96F0 /* SaveConditionRequest.swift in Sources */,
@@ -2138,6 +2321,7 @@
 				DEFE83DE2AA5B1FB00FB96F0 /* SplashReceiptValidationObserver.swift in Sources */,
 				DEFE83F62AA5B1FB00FB96F0 /* SelectUnitTableView.swift in Sources */,
 				DEFE83FD2AA5B1FB00FB96F0 /* DrugsViewModel.swift in Sources */,
+				DEB28C742AA5CC0D00DA4EF8 /* GetBookmarksDiseasesResponse.swift in Sources */,
 				DEFE83672AA5B1FB00FB96F0 /* NumberLaunches.swift in Sources */,
 				DEFE83782AA5B1FB00FB96F0 /* Spinner.swift in Sources */,
 				DEFE84002AA5B1FB00FB96F0 /* DrugsTableView.swift in Sources */,
@@ -2173,14 +2357,17 @@
 				DEFE83A02AA5B1FB00FB96F0 /* GetInteractionCheckerMedsResponse.swift in Sources */,
 				DEFE838A2AA5B1FB00FB96F0 /* DrugsMediator.swift in Sources */,
 				DEFE838E2AA5B1FB00FB96F0 /* DrugsInteraction.swift in Sources */,
+				DEB28C822AA5CF4800DA4EF8 /* DiseasesTableCell.swift in Sources */,
 				DEFE84492AA5B1FB00FB96F0 /* InteractionCheckerViewController.swift in Sources */,
 				DEFE838C2AA5B1FB00FB96F0 /* Drug.swift in Sources */,
 				DEFE83802AA5B1FB00FB96F0 /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DEFE83C72AA5B1FB00FB96F0 /* GetBookmarksConditionsRequest.swift in Sources */,
 				DEFE83D32AA5B1FB00FB96F0 /* SettingsRouteCell.swift in Sources */,
 				DEFE83C22AA5B1FB00FB96F0 /* SymptomsCheckerResponse.swift in Sources */,
+				DEB28C722AA5CC0500DA4EF8 /* GetBookmarksDiseasesRequest.swift in Sources */,
 				DEFE84102AA5B1FB00FB96F0 /* SymptomCheckerCollector.swift in Sources */,
 				DEFE84172AA5B1FB00FB96F0 /* SCPersonalView.swift in Sources */,
+				DEB28C8B2AA5D97400DA4EF8 /* DrugTableImageCell.swift in Sources */,
 				DEFE83902AA5B1FB00FB96F0 /* DrugSection.swift in Sources */,
 				DEFE843F2AA5B1FB00FB96F0 /* DisclaimerView.swift in Sources */,
 				DEFE83C52AA5B1FB00FB96F0 /* GetSymptomsResponse.swift in Sources */,
@@ -2197,6 +2384,7 @@
 				DEFE84372AA5B1FB00FB96F0 /* SymptomTagView.swift in Sources */,
 				DEFE84452AA5B1FB00FB96F0 /* OInteractionCheckerView.swift in Sources */,
 				DEFE83E42AA5B1FB00FB96F0 /* BookmarkInteractionCell.swift in Sources */,
+				DEB28C582AA5C87E00DA4EF8 /* DiseasesMediator.swift in Sources */,
 				DEFE839D2AA5B1FB00FB96F0 /* GetDrugsResponse.swift in Sources */,
 				DEFE844F2AA5B1FB00FB96F0 /* InteractionCheckerResultCell.swift in Sources */,
 				DEFE836C2AA5B1FB00FB96F0 /* Fonts.swift in Sources */,
@@ -2346,8 +2534,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dermatology/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2360,8 +2551,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wed.Dermatology;
+				PRODUCT_BUNDLE_IDENTIFIER = app.books;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BookSummaries Dev";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2377,8 +2570,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dermatology/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2391,8 +2587,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wed.Dermatology;
+				PRODUCT_BUNDLE_IDENTIFIER = app.books;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BookSummaries Dev";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
