@@ -16,6 +16,7 @@ struct SymptomsCheckerRequest: APIRequestBody {
     let pregnant: Bool
     let currentMedicationsIds: [Int]?
     let medicalStatesIds: [Int]?
+    let imagePath: String
     
     var url: String {
         GlobalDefinitions.domain + "/api/symptom_checker/analyze"
@@ -33,7 +34,8 @@ struct SymptomsCheckerRequest: APIRequestBody {
             "sex": sex,
             "symptoms_ids": symptomsIds,
             "main_symptom_id": mainSymptomId,
-            "pregnant": pregnant
+            "pregnant": pregnant,
+            "image": imagePath // TODO: сверить название
         ]
         
         if let currentMedicationsIds = currentMedicationsIds {

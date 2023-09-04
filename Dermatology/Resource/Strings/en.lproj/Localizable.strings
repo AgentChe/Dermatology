@@ -145,6 +145,8 @@
 "SymptomChecker.Result.Moderate" = "Moderate Match";
 "SymptomChecker.Result.StrongMatch" = "Strong Match";
 "SymptomChecker.Result.ReadMore" = "Read more";
+"SymptomChecker.Image.Title" = "Please provide picture";
+"SymptomChecker.Image.Placeholder" = "Add your image";
 
 // MARK: SICDetails
 "SICDetails.ConditionDetails" = "CONDITION DETAILS";

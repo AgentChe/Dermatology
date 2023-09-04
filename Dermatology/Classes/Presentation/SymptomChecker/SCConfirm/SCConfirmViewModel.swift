@@ -5,6 +5,7 @@
 //  Created by Андрей Чернышев on 24.05.2023.
 //
 
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -42,6 +43,7 @@ extension SCConfirmViewModel {
         let didAddCondition: Signal<MedicalState>
         let didRemoveCondition: Signal<MedicalState>
         let didTapContinue: Signal<Void>
+        let didSelectImage: Signal<UIImage?>
     }
     
     struct Output {
@@ -60,7 +62,10 @@ extension SCConfirmViewModel {
             didRemoveCondition: input.didRemoveCondition
         )
         let selectedConditions = makeSelectedMedicalStates(action: conditionActions)
-        let continueEnable = makeContinueEnable(didSelectMostSymptom: input.didSelectMostSymptom)
+        let continueEnable = makeContinueEnable(
+            didSelectMostSymptom: input.didSelectMostSymptom,
+            didSelectImage: input.didSelectImage
+        )
         let didSelectPregnant = input.didSelectPregnant
             .startWith(false)
         
@@ -68,7 +73,10 @@ extension SCConfirmViewModel {
             elements: makeElements(
                 selectedMedications: selectedMedications,
                 selectedConditions: selectedConditions,
-                continueEnable: continueEnable
+                continueEnable: continueEnable,
+                selectedImage: input.didSelectImage
+                    .startWith(nil)
+                    .asDriver(onErrorDriveWith: .never())
             ),
             route: makeRoute(
                 didTapChoose: input.didTapChoose,
@@ -76,7 +84,10 @@ extension SCConfirmViewModel {
                 didSelectMostSymptom: input.didSelectMostSymptom,
                 didSelectPregnant: didSelectPregnant,
                 selectedMedications: selectedMedications,
-                selectedConditions: selectedConditions
+                selectedConditions: selectedConditions,
+                selectedImage: input.didSelectImage
+                    .compactMap { $0 }
+                    .asDriver(onErrorDriveWith: .never())
             )
         )
     }
@@ -97,16 +108,18 @@ private extension SCConfirmViewModel {
     func makeElements(
         selectedMedications: Driver<[SymptomMed]>,
         selectedConditions: Driver<[MedicalState]>,
-        continueEnable: Driver<Bool>
+        continueEnable: Driver<Bool>,
+        selectedImage: Driver<UIImage?>
     ) -> Driver<[SCConfirmTableElement]> {
         Driver
             .combineLatest(
                 collector,
                 selectedMedications,
                 selectedConditions,
-                continueEnable
+                continueEnable,
+                selectedImage
             )
-            .map { [weak self] collector, medications, conditions, continueEnable  -> [SCConfirmTableElement] in
+            .map { [weak self] collector, medications, conditions, continueEnable, image  -> [SCConfirmTableElement] in
                 guard let self = self else {
                     return []
                 }
@@ -129,6 +142,8 @@ private extension SCConfirmViewModel {
                 }
                 result.append(.description("SymptomChecker.Confirm.Conditions.Description".localized))
                 
+                result.append(.image(image))
+                
                 result.append(.continue(continueEnable))
                 
                 return result
@@ -136,11 +151,18 @@ private extension SCConfirmViewModel {
     }
     
     func makeContinueEnable(
-        didSelectMostSymptom: Signal<Symptom>
+        didSelectMostSymptom: Signal<Symptom>,
+        didSelectImage: Signal<UIImage?>
     ) -> Driver<Bool> {
-        didSelectMostSymptom
-            .asDriver(onErrorDriveWith: .never())
-            .map { symptom in true }
+        Driver
+            .combineLatest(
+                didSelectMostSymptom
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { symptom in true },
+                didSelectImage
+                    .asDriver(onErrorJustReturn: nil)
+                    .map { $0 != nil }
+            ) { $0 && $1 }
             .startWith(false)
     }
     
@@ -208,7 +230,8 @@ private extension SCConfirmViewModel {
         didSelectMostSymptom: Signal<Symptom>,
         didSelectPregnant: Signal<Bool>,
         selectedMedications: Driver<[SymptomMed]>,
-        selectedConditions: Driver<[MedicalState]>
+        selectedConditions: Driver<[MedicalState]>,
+        selectedImage: Driver<UIImage>
     ) -> Driver<Route> {
         Driver
             .merge(
@@ -222,7 +245,8 @@ private extension SCConfirmViewModel {
                     didSelectMostSymptom: didSelectMostSymptom,
                     didSelectPregnant: didSelectPregnant,
                     selectedMedications: selectedMedications,
-                    selectedConditions: selectedConditions
+                    selectedConditions: selectedConditions,
+                    selectedImage: selectedImage
                 )
             )
     }
@@ -251,15 +275,17 @@ private extension SCConfirmViewModel {
         didSelectMostSymptom: Signal<Symptom>,
         didSelectPregnant: Signal<Bool>,
         selectedMedications: Driver<[SymptomMed]>,
-        selectedConditions: Driver<[MedicalState]>
+        selectedConditions: Driver<[MedicalState]>,
+        selectedImage: Driver<UIImage>
     ) -> Driver<Route> {
         let args = Driver
             .combineLatest(
                 didSelectMostSymptom.asDriver(onErrorDriveWith: .never()),
                 didSelectPregnant.asDriver(onErrorDriveWith: .never()),
                 selectedMedications,
-                selectedConditions
-            ) { ($0, $1, $2, $3) }
+                selectedConditions,
+                selectedImage
+            ) { ($0, $1, $2, $3, $4) }
         
         
         return didTapContinue
@@ -270,6 +296,7 @@ private extension SCConfirmViewModel {
                 $0.pregnant = $1.1
                 $0.currentMedicationsIds = $1.2.map { $0.id }
                 $0.medicalStatesIds = $1.3.map { $0.id }
+                $0.image = $1.4
                 return $0
             }
             .map { [weak self] collector -> Route in

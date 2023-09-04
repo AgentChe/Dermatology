@@ -5,6 +5,8 @@
 //  Created by Андрей Чернышев on 26.05.2023.
 //
 
+import UIKit
+
 enum SCConfirmTableElement {
     case mostSymptom(SCConfirmMostSymptomElement)
     case pregnant
@@ -13,6 +15,7 @@ enum SCConfirmTableElement {
     case `continue`(Bool)
     case medications([SymptomMed])
     case conditions([MedicalState])
+    case image(UIImage?)
 }
 
 final class SCConfirmMostSymptomElement {

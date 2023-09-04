@@ -18,6 +18,7 @@ final class SCConfirmTableView: UITableView {
     private lazy var didRemoveMedicationTrigger = PublishRelay<SymptomMed>()
     private lazy var didRemoveConditionTrigger = PublishRelay<MedicalState>()
     private lazy var didTapContinueTrigger = PublishRelay<Void>()
+    private lazy var didTapImageTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -60,6 +61,10 @@ extension SCConfirmTableView {
     
     var didTapContinue: Signal<Void> {
         didTapContinueTrigger.asSignal()
+    }
+    
+    var didTapImage: Signal<Void> {
+        didTapImageTrigger.asSignal()
     }
 }
 
@@ -121,6 +126,10 @@ extension SCConfirmTableView: UITableViewDataSource {
                 self?.didRemoveConditionTrigger.accept(state)
             }
             return cell
+        case .image(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: SCCImageCell.self), for: indexPath) as! SCCImageCell
+            cell.setup(element: element)
+            return cell
         }
     }
 }
@@ -131,11 +140,14 @@ extension SCConfirmTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard case .continue = elements[indexPath.row] else {
+        switch elements[indexPath.row] {
+        case .continue:
+            didTapContinueTrigger.accept(Void())
+        case .image:
+            didTapImageTrigger.accept(Void())
+        default:
             return
         }
-        
-        didTapContinueTrigger.accept(Void())
     }
 }
 
@@ -148,6 +160,7 @@ private extension SCConfirmTableView {
         register(SCConfirmDescriptionCell.self, forCellReuseIdentifier: String(describing: SCConfirmDescriptionCell.self))
         register(SCSymptomsContinueCell.self, forCellReuseIdentifier: String(describing: SCSymptomsContinueCell.self))
         register(SCConfirmDrugsCell.self, forCellReuseIdentifier: String(describing: SCConfirmDrugsCell.self))
+        register(SCCImageCell.self, forCellReuseIdentifier: String(describing: SCCImageCell.self))
         
         dataSource = self
         delegate = self

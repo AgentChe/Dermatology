@@ -91,7 +91,8 @@ private extension SCResultViewModel {
                             mainSymptomId: mainSymptomId,
                             pregnant: pregnant,
                             currentMedicationsIds: currentMedicationsIds,
-                            medicalStatesIds: medicalStatesIds
+                            medicalStatesIds: medicalStatesIds,
+                            imageURL: URL(string: "www.google.com")! // TODO: загружать картинку
                         )
                 }
                 

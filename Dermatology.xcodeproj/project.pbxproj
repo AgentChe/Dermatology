@@ -75,6 +75,8 @@
 		DEB28CFB2AA6092100DA4EF8 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF32AA6092100DA4EF8 /* TermViewController.swift */; };
 		DEB28CFC2AA6092100DA4EF8 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF42AA6092100DA4EF8 /* TermView.swift */; };
 		DEB28CFD2AA6092100DA4EF8 /* TermViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */; };
+		DEB28CFF2AA6278F00DA4EF8 /* SCCImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CFE2AA6278F00DA4EF8 /* SCCImageCell.swift */; };
+		DEB28D032AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28D022AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift */; };
 		DEFE81CE2AA5B0D800FB96F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81CD2AA5B0D800FB96F0 /* Assets.xcassets */; };
 		DEFE81D12AA5B0D800FB96F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81CF2AA5B0D800FB96F0 /* LaunchScreen.storyboard */; };
 		DEFE81DA2AA5B1E900FB96F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEFE81D92AA5B1E800FB96F0 /* GoogleService-Info.plist */; };
@@ -405,6 +407,8 @@
 		DEB28CF32AA6092100DA4EF8 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		DEB28CF42AA6092100DA4EF8 /* TermView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewModel.swift; sourceTree = "<group>"; };
+		DEB28CFE2AA6278F00DA4EF8 /* SCCImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCImageCell.swift; sourceTree = "<group>"; };
+		DEB28D022AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCImagePlaceholderView.swift; sourceTree = "<group>"; };
 		DEFE81C12AA5B0D700FB96F0 /* Dermatology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dermatology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFE81CD2AA5B0D800FB96F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEFE81D02AA5B0D800FB96F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1045,6 +1049,23 @@
 			path = Term;
 			sourceTree = "<group>";
 		};
+		DEB28D002AA628F100DA4EF8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28D012AA628F700DA4EF8 /* Views */,
+				DEB28CFE2AA6278F00DA4EF8 /* SCCImageCell.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		DEB28D012AA628F700DA4EF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEB28D022AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DEFE81B82AA5B0D700FB96F0 = {
 			isa = PBXGroup;
 			children = (
@@ -1502,9 +1523,9 @@
 		DEFE826A2AA5B1FB00FB96F0 /* Symptoms */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE826B2AA5B1FB00FB96F0 /* SymptomsManager.swift */,
-				DEFE826C2AA5B1FB00FB96F0 /* Model */,
 				DEFE82742AA5B1FB00FB96F0 /* Request */,
+				DEFE826C2AA5B1FB00FB96F0 /* Model */,
+				DEFE826B2AA5B1FB00FB96F0 /* SymptomsManager.swift */,
 				DEFE828A2AA5B1FB00FB96F0 /* SymptomsMediator.swift */,
 			);
 			path = Symptoms;
@@ -1940,11 +1961,11 @@
 		DEFE82EB2AA5B1FB00FB96F0 /* SCResult */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE82F12AA5B1FB00FB96F0 /* Views */,
+				DEFE82EF2AA5B1FB00FB96F0 /* Model */,
 				DEFE82EC2AA5B1FB00FB96F0 /* SCResultViewController.swift */,
 				DEFE82ED2AA5B1FB00FB96F0 /* SCResultViewModel.swift */,
 				DEFE82EE2AA5B1FB00FB96F0 /* SCResultView.swift */,
-				DEFE82EF2AA5B1FB00FB96F0 /* Model */,
-				DEFE82F12AA5B1FB00FB96F0 /* Views */,
 			);
 			path = SCResult;
 			sourceTree = "<group>";
@@ -2007,10 +2028,10 @@
 		DEFE82FF2AA5B1FB00FB96F0 /* SICDetails */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE83032AA5B1FB00FB96F0 /* Views */,
 				DEFE83002AA5B1FB00FB96F0 /* SICDetailsView.swift */,
 				DEFE83012AA5B1FB00FB96F0 /* SICDetailsViewModel.swift */,
 				DEFE83022AA5B1FB00FB96F0 /* SICDetailsViewController.swift */,
-				DEFE83032AA5B1FB00FB96F0 /* Views */,
 			);
 			path = SICDetails;
 			sourceTree = "<group>";
@@ -2056,9 +2077,9 @@
 		DEFE830E2AA5B1FB00FB96F0 /* SCConfirm */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE83112AA5B1FB00FB96F0 /* Views */,
 				DEFE830F2AA5B1FB00FB96F0 /* SCConfirmView.swift */,
 				DEFE83102AA5B1FB00FB96F0 /* SCConfirmViewModel.swift */,
-				DEFE83112AA5B1FB00FB96F0 /* Views */,
 				DEFE83252AA5B1FB00FB96F0 /* SCConfirmViewController.swift */,
 			);
 			path = SCConfirm;
@@ -2085,11 +2106,12 @@
 		DEFE83132AA5B1FB00FB96F0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DEB28D002AA628F100DA4EF8 /* Image */,
 				DEFE83142AA5B1FB00FB96F0 /* Drugs */,
-				DEFE83192AA5B1FB00FB96F0 /* SCConfirmDescriptionCell.swift */,
 				DEFE831A2AA5B1FB00FB96F0 /* Pregnant */,
 				DEFE831E2AA5B1FB00FB96F0 /* MostSymptom */,
 				DEFE83222AA5B1FB00FB96F0 /* SCConfirmChooseCell.swift */,
+				DEFE83192AA5B1FB00FB96F0 /* SCConfirmDescriptionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2451,6 +2473,7 @@
 				DEFE83DA2AA5B1FB00FB96F0 /* HomeTableView.swift in Sources */,
 				DEB28CDB2AA604C800DA4EF8 /* TermsManager.swift in Sources */,
 				DEFE83A82AA5B1FB00FB96F0 /* ProfileManager.swift in Sources */,
+				DEB28D032AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift in Sources */,
 				DEFE835C2AA5B1FB00FB96F0 /* UIColor+Extension.swift in Sources */,
 				DEFE839A2AA5B1FB00FB96F0 /* DrugsInteractionCheckerRequest.swift in Sources */,
 				DEB28C682AA5C9B500DA4EF8 /* GetDiseasesResponse.swift in Sources */,
@@ -2753,6 +2776,7 @@
 				DEFE83E42AA5B1FB00FB96F0 /* BookmarkInteractionCell.swift in Sources */,
 				DEB28C582AA5C87E00DA4EF8 /* DiseasesMediator.swift in Sources */,
 				DEB28CE22AA604C800DA4EF8 /* GetTermsRequest.swift in Sources */,
+				DEB28CFF2AA6278F00DA4EF8 /* SCCImageCell.swift in Sources */,
 				DEFE839D2AA5B1FB00FB96F0 /* GetDrugsResponse.swift in Sources */,
 				DEFE844F2AA5B1FB00FB96F0 /* InteractionCheckerResultCell.swift in Sources */,
 				DEFE836C2AA5B1FB00FB96F0 /* Fonts.swift in Sources */,
@@ -2909,6 +2933,8 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dermatology/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -2945,6 +2971,8 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dermatology/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

@@ -16,7 +16,8 @@ protocol SymptomsManagerProtocol {
         mainSymptomId: Int,
         pregnant: Bool,
         currentMedicationsIds: [Int]?,
-        medicalStatesIds: [Int]?
+        medicalStatesIds: [Int]?,
+        imageURL: URL
     ) -> Single<[SymptomsInteractionCondition]>
     func obtainConditionDetails(id: Int) -> Single<SymptomsInteractionConditionDetails?>
     func save(conditionId: Int) -> Single<Void>
@@ -51,7 +52,8 @@ extension SymptomsManager: SymptomsManagerProtocol {
         mainSymptomId: Int,
         pregnant: Bool,
         currentMedicationsIds: [Int]?,
-        medicalStatesIds: [Int]?
+        medicalStatesIds: [Int]?,
+        imageURL: URL
     ) -> Single<[SymptomsInteractionCondition]> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
@@ -65,7 +67,8 @@ extension SymptomsManager: SymptomsManagerProtocol {
             mainSymptomId: mainSymptomId,
             pregnant: pregnant,
             currentMedicationsIds: currentMedicationsIds,
-            medicalStatesIds: medicalStatesIds
+            medicalStatesIds: medicalStatesIds,
+            imagePath: imageURL.absoluteString
         )
 
         return defaultRequestWrapper

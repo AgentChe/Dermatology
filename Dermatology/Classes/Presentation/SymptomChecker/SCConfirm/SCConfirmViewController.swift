@@ -20,6 +20,9 @@ final class SCConfirmViewController: UIViewController {
     
     private lazy var didAddMedicationTrigger = PublishRelay<SymptomMed>()
     private lazy var didAddConditionTrigger = PublishRelay<MedicalState>()
+    private lazy var didAddImageTrigger = PublishRelay<UIImage?>()
+    
+    private lazy var imagePicker = ImagePicker(presentationController: self, delegate: self)
     
     private init(collector: SymptomCheckerCollector) {
         viewModel = SCConfirmViewModel(collector: collector)
@@ -38,6 +41,12 @@ final class SCConfirmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.tableView.didTapImage
+            .emit(to: Binder(self) { base, void in
+                base.imagePicker.present(from: self.mainView)
+            })
+            .disposed(by: disposeBag)
+        
         let output = viewModel.configure(input: SCConfirmViewModel.Input(
             didSelectMostSymptom: mainView.tableView.didSelectMostSymptom,
             didSelectPregnant: mainView.tableView.didSelectPregnant,
@@ -46,7 +55,8 @@ final class SCConfirmViewController: UIViewController {
             didRemoveMedication: mainView.tableView.didRemoveMedication,
             didAddCondition: didAddConditionTrigger.asSignal(),
             didRemoveCondition: mainView.tableView.didRemoveCondition,
-            didTapContinue: mainView.tableView.didTapContinue
+            didTapContinue: mainView.tableView.didTapContinue,
+            didSelectImage: didAddImageTrigger.asSignal()
         ))
         
         output.elements
@@ -85,6 +95,13 @@ extension SCConfirmViewController {
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "SymptomChecker.Title".localized
         return vc
+    }
+}
+
+// MARK: ImagePickerDelegate
+extension SCConfirmViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        didAddImageTrigger.accept(image)
     }
 }
 

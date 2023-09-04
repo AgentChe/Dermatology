@@ -5,6 +5,8 @@
 //  Created by Андрей Чернышев on 24.05.2023.
 //
 
+import UIKit
+
 final class SymptomCheckerCollector {
     var age: Int?
     var gender: Int?
@@ -13,4 +15,5 @@ final class SymptomCheckerCollector {
     var pregnant: Bool?
     var currentMedicationsIds: [Int]?
     var medicalStatesIds: [Int]?
+    var image: UIImage?
 }
