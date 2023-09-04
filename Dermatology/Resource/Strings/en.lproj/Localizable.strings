@@ -155,6 +155,9 @@
 "Bookmark.Title" = "Bookmark";
 "Bookmark.Done" = "Done";
 "Bookmark.Drugs" = "Drugs";
+"Bookmark.Diseases" = "Diseases";
+"Bookmark.Procedures" = "Procedures";
+"Bookmark.Terms" = "Terms";
 "Bookmark.Interactions" = "Interactions";
 "Bookmark.SideEffect.Minor" = "Minor";
 "Bookmark.SideEffect.MonitorClosely" = "Monitor Closely";
@@ -166,10 +169,16 @@
 "Bookmark.ConfirmDelete.Text" = "Here’s some alert text. It can span multiple lines if needed!";
 "Bookmark.Empty.Drugs.Title" = "Nothing here yet";
 "Bookmark.Empty.Drugs.Text" = "Saved drugs will appear here";
+"Bookmark.Empty.Diseases.Title" = "Nothing here yet";
+"Bookmark.Empty.Diseases.Text" = "Saved interactions will appear here";
+"Bookmark.Empty.Procedures.Title" = "Nothing here yet";
+"Bookmark.Empty.Procedures.Text" = "Saved drags will appear here";
 "Bookmark.Empty.Interactions.Title" = "Nothing here yet";
 "Bookmark.Empty.Interactions.Text" = "Saved interactions will appear here";
 "Bookmark.Empty.Conditions.Title" = "Nothing here yet";
 "Bookmark.Empty.Conditions.Text" = "Saved conditions will appear here";
+"Bookmark.Empty.Terms.Title" = "Nothing here yet";
+"Bookmark.Empty.Terms.Text" = "Saved drags will appear here";
 
 // MARK: Diseases
 "Diseases.Title" = "Diseases Guide";

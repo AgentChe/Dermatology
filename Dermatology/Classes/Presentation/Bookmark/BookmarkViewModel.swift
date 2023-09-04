@@ -11,8 +11,11 @@ import RxCocoa
 final class BookmarkViewModel {
     enum Route {
         case drug(Drug)
+        case disease(Disease)
+        case procedure(Procedure)
         case interaction(DrugsInteraction)
         case condition(SymptomsInteractionConditionDetails)
+        case term(Term)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -20,8 +23,11 @@ final class BookmarkViewModel {
     private lazy var activity = RxActivityIndicator()
     
     private lazy var bookmarkDrugs = makeBookmarkDrugs()
+    private lazy var bookmarkDiseases = makeBookmarkDiseases()
+    private lazy var bookmarkProcedures = makeBookmarkProcedures()
     private lazy var interactions = makeInteractions()
     private lazy var conditions = makeConditions()
+    private lazy var bookmarkTerms = makeBookmarkTerms()
     private lazy var drugs = makeDrugs()
     private lazy var interactionCheckerMeds = makeInteractionCheckerMeds()
     
@@ -29,6 +35,9 @@ final class BookmarkViewModel {
     
     private lazy var symptomsManager = SymptomsManager()
     private lazy var drugsManager = DrugsManager()
+    private lazy var diseasesManager = DiseasesManager()
+    private lazy var proceduresManager = ProceduresManager()
+    private lazy var termsManager = TermsManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
 }
@@ -41,8 +50,11 @@ extension BookmarkViewModel {
         let didTapEdit: Signal<Void>
         let didTapDelete: Signal<Void>
         let didTapDrug: Signal<Drug>
+        let didTapDisease: Signal<Disease>
+        let didTapProcedure: Signal<Procedure>
         let didTapInteraction: Signal<DrugsInteraction>
         let didTapCondition: Signal<SymptomsInteractionConditionDetails>
+        let didTapTerm: Signal<Term>
     }
     
     struct Output {
@@ -69,6 +81,14 @@ extension BookmarkViewModel {
             navigationMode: navigationMode,
             didTapDrug: input.didTapDrug
         )
+        let selectedDiseases = makeSelectedDiseases(
+            navigationMode: navigationMode,
+            didTapDisease: input.didTapDisease
+        )
+        let selectedProcedures = makeSelectedProcedures(
+            navigationMode: navigationMode,
+            didTapProcedure: input.didTapProcedure
+        )
         let selectedInteractions = makeSelectedInteractions(
             navigationMode: navigationMode,
             didTapInteraction: input.didTapInteraction
@@ -77,9 +97,21 @@ extension BookmarkViewModel {
             navigationMode: navigationMode,
             didTapCondition: input.didTapCondition
         )
+        let selectedTerms = makeSelectedTerms(
+            navigationMode: navigationMode,
+            didTapTerm: input.didTapTerm
+        )
         let drugsElements = makeDrugsElements(
             navigationMode: navigationMode,
             selectedDrugs: selectedDrugs
+        )
+        let diseasesElements = makeDiseasesElements(
+            navigationMode: navigationMode,
+            selectedDiseases: selectedDiseases
+        )
+        let proceduresElements = makeProceduresElements(
+            navigationMode: navigationMode,
+            selectedProcedures: selectedProcedures
         )
         let interactionsElements = makeInteractionsElements(
             navigationMode: navigationMode,
@@ -89,18 +121,28 @@ extension BookmarkViewModel {
             navigationMode: navigationMode,
             selectedConditions: selectedConditions
         )
+        let termsElements = makeTermsElements(
+            navigationMode: navigationMode,
+            selectedTerms: selectedTerms
+        )
         let route = makeRoute(
             navigationMode: navigationMode,
             didTapDrug: input.didTapDrug,
+            didTapDisease: input.didTapDisease,
+            didTapProcedure: input.didTapProcedure,
             didTapInteraction: input.didTapInteraction,
-            didTapCondition: input.didTapCondition
+            didTapCondition: input.didTapCondition,
+            didTapTerm: input.didTapTerm
         )
         let didDelete = makeDelete(
             didTapFilter: didTapFilter,
             didTapDelete: input.didTapDelete,
             selectedDrugs: selectedDrugs,
+            selectedDiseases: selectedDiseases,
+            selectedProcedures: selectedProcedures,
             selectedInteractions: selectedInteractions,
-            selectedConditions: selectedConditions
+            selectedConditions: selectedConditions,
+            selectedTerms: selectedTerms
         )
         let disposable = didDelete
             .asSignal(onErrorSignalWith: .never())
@@ -110,22 +152,31 @@ extension BookmarkViewModel {
             isEmpty: makeIsEmpty(
                 didTapFilter: didTapFilter,
                 drugsElements: drugsElements,
+                diseasesElements: diseasesElements,
+                proceduresElements: proceduresElements,
                 interactionsElements: interactionsElements,
-                conditionsElements: conditionsElements
+                conditionsElements: conditionsElements,
+                termsElements: termsElements
             ),
             navigationMode: navigationMode,
             elements: makeElements(
                 didTapFilter: didTapFilter,
                 drugsElements: drugsElements,
+                diseasesElements: diseasesElements,
+                proceduresElements: proceduresElements,
                 interactionsElements: interactionsElements,
-                conditionsElements: conditionsElements
+                conditionsElements: conditionsElements,
+                termsElements: termsElements
             ),
             activity: activity.asDriver(),
             hasSelectedOnCurrentFilter: makeHasSelectedOnCurrentFilter(
                 didTapFilter: didTapFilter,
                 selectedDrugs: selectedDrugs,
+                selectedDiseases: selectedDiseases,
+                selectedProcedures: selectedProcedures,
                 selectedInteractions: selectedInteractions,
-                selectedConditions: selectedConditions
+                selectedConditions: selectedConditions,
+                selectedTerms: selectedTerms
             ),
             route: route,
             disposable: disposable
@@ -135,32 +186,38 @@ extension BookmarkViewModel {
 
 // MARK: Private
 private extension BookmarkViewModel {
-    enum DeleteAction {
-        case drugs([Int])
-        case interactions([Int])
-        case conditions([Int])
-    }
-    
     func makeIsEmpty(
         didTapFilter: Driver<BookmarkFilterView.Filter>,
         drugsElements: Driver<[BookmarkTableElement]>,
+        diseasesElements: Driver<[BookmarkTableElement]>,
+        proceduresElements: Driver<[BookmarkTableElement]>,
         interactionsElements: Driver<[BookmarkTableElement]>,
-        conditionsElements: Driver<[BookmarkTableElement]>
+        conditionsElements: Driver<[BookmarkTableElement]>,
+        termsElements: Driver<[BookmarkTableElement]>
     ) -> Driver<BookmarkEmptyView.Unit?> {
         Driver
             .combineLatest(
                 didTapFilter,
                 drugsElements,
+                diseasesElements,
+                proceduresElements,
                 interactionsElements,
-                conditionsElements
-            ).map { filter, drugs, interactions, conditions -> BookmarkEmptyView.Unit? in
+                conditionsElements,
+                termsElements
+            ).map { filter, drugs, diseases, procedures, interactions, conditions, terms -> BookmarkEmptyView.Unit? in
                 switch filter {
                 case .drugs:
                     return drugs.isEmpty ? .drugs : nil
+                case .diseases:
+                    return diseases.isEmpty ? .diseases : nil
+                case .procedures:
+                    return procedures.isEmpty ? .procedures : nil
                 case .interactions:
                     return interactions.isEmpty ? .interactions : nil
                 case .conditions:
                     return conditions.isEmpty ? .conditions : nil
+                case .terms:
+                    return terms.isEmpty ? .terms : nil
                 }
             }
     }
@@ -185,24 +242,36 @@ private extension BookmarkViewModel {
     func makeElements(
         didTapFilter: Driver<BookmarkFilterView.Filter>,
         drugsElements: Driver<[BookmarkTableElement]>,
+        diseasesElements: Driver<[BookmarkTableElement]>,
+        proceduresElements: Driver<[BookmarkTableElement]>,
         interactionsElements: Driver<[BookmarkTableElement]>,
-        conditionsElements: Driver<[BookmarkTableElement]>
+        conditionsElements: Driver<[BookmarkTableElement]>,
+        termsElements: Driver<[BookmarkTableElement]>
     ) -> Driver<[BookmarkTableElement]> {
         Driver
             .combineLatest(
                 didTapFilter,
                 drugsElements,
+                diseasesElements,
+                proceduresElements,
                 interactionsElements,
-                conditionsElements
+                conditionsElements,
+                termsElements
             )
-            .map { filter, drugs, interactions, conditions -> [BookmarkTableElement] in
+            .map { filter, drugs, diseases, procedures, interactions, conditions, terms -> [BookmarkTableElement] in
                 switch filter {
                 case .drugs:
                     return drugs
+                case .diseases:
+                    return diseases
+                case .procedures:
+                    return procedures
                 case .interactions:
                     return interactions
                 case .conditions:
                     return conditions
+                case .terms:
+                    return terms
                 }
             }
     }
@@ -210,24 +279,36 @@ private extension BookmarkViewModel {
     func makeHasSelectedOnCurrentFilter(
         didTapFilter: Driver<BookmarkFilterView.Filter>,
         selectedDrugs: Driver<[Drug]>,
+        selectedDiseases: Driver<[Disease]>,
+        selectedProcedures: Driver<[Procedure]>,
         selectedInteractions: Driver<[DrugsInteraction]>,
-        selectedConditions: Driver<[SymptomsInteractionConditionDetails]>
+        selectedConditions: Driver<[SymptomsInteractionConditionDetails]>,
+        selectedTerms: Driver<[Term]>
     ) -> Driver<Bool> {
         Driver
             .combineLatest(
                 didTapFilter,
                 selectedDrugs.startWith([]),
+                selectedDiseases.startWith([]),
+                selectedProcedures.startWith([]),
                 selectedInteractions.startWith([]),
-                selectedConditions.startWith([])
+                selectedConditions.startWith([]),
+                selectedTerms.startWith([])
             )
-            .map { filter, drugs, interactions, conditions -> Bool in
+            .map { filter, drugs, diseases, procedures, interactions, conditions, terms -> Bool in
                 switch filter {
                 case .drugs:
                     return !drugs.isEmpty
+                case .diseases:
+                    return !diseases.isEmpty
+                case .procedures:
+                    return !procedures.isEmpty
                 case .interactions:
                     return !interactions.isEmpty
                 case .conditions:
                     return !conditions.isEmpty
+                case .terms:
+                    return !terms.isEmpty
                 }
             }
     }
@@ -247,6 +328,46 @@ private extension BookmarkViewModel {
                     BookmarkTableElement(
                         unit: .drug(drug),
                         seleted: mode == .editable ? selectedDrugs.contains(where: { $0.id == drug.id }) : nil
+                    )
+                }
+            }
+    }
+    
+    func makeDiseasesElements(
+        navigationMode: Driver<BookmarkViewController.NavigationMode>,
+        selectedDiseases: Driver<[Disease]>
+    ) -> Driver<[BookmarkTableElement]> {
+        Driver
+            .combineLatest(
+                navigationMode,
+                bookmarkDiseases,
+                selectedDiseases
+            )
+            .map { mode, bookmarkDiseases, selectedDiseases -> [BookmarkTableElement] in
+                bookmarkDiseases.map { disease -> BookmarkTableElement in
+                    BookmarkTableElement(
+                        unit: .disease(disease),
+                        seleted: mode == .editable ? selectedDiseases.contains(where: { $0.id == disease.id }) : nil
+                    )
+                }
+            }
+    }
+    
+    func makeProceduresElements(
+        navigationMode: Driver<BookmarkViewController.NavigationMode>,
+        selectedProcedures: Driver<[Procedure]>
+    ) -> Driver<[BookmarkTableElement]> {
+        Driver
+            .combineLatest(
+                navigationMode,
+                bookmarkProcedures,
+                selectedProcedures
+            )
+            .map { mode, bookmarkProcedures, selectedProcedures -> [BookmarkTableElement] in
+                bookmarkProcedures.map { procedure -> BookmarkTableElement in
+                    BookmarkTableElement(
+                        unit: .procedure(procedure),
+                        seleted: mode == .editable ? selectedProcedures.contains(where: { $0.id == procedure.id }) : nil
                     )
                 }
             }
@@ -299,6 +420,26 @@ private extension BookmarkViewModel {
             }
     }
     
+    func makeTermsElements(
+        navigationMode: Driver<BookmarkViewController.NavigationMode>,
+        selectedTerms: Driver<[Term]>
+    ) -> Driver<[BookmarkTableElement]> {
+        Driver
+            .combineLatest(
+                navigationMode,
+                bookmarkTerms,
+                selectedTerms
+            )
+            .map { mode, bookmarkTerms, selectedTerms -> [BookmarkTableElement] in
+                bookmarkTerms.map { term -> BookmarkTableElement in
+                    BookmarkTableElement(
+                        unit: .term(term),
+                        seleted: mode == .editable ? selectedTerms.contains(where: { $0.id == term.id }) : nil
+                    )
+                }
+            }
+    }
+    
     func makeSelectedDrugs(
         navigationMode: Driver<BookmarkViewController.NavigationMode>,
         didTapDrug: Signal<Drug>
@@ -308,6 +449,32 @@ private extension BookmarkViewModel {
             didTapUnit: didTapDrug,
             index: { drug, selectedDrugs -> Int? in
                 selectedDrugs.firstIndex(where: { $0.id == drug.id })
+            }
+        )
+    }
+    
+    func makeSelectedDiseases(
+        navigationMode: Driver<BookmarkViewController.NavigationMode>,
+        didTapDisease: Signal<Disease>
+    ) -> Driver<[Disease]> {
+        makeSelectedUnits(
+            navigationMode: navigationMode,
+            didTapUnit: didTapDisease,
+            index: { disease, selectedDiseases -> Int? in
+                selectedDiseases.firstIndex(where: { $0.id == disease.id })
+            }
+        )
+    }
+    
+    func makeSelectedProcedures(
+        navigationMode: Driver<BookmarkViewController.NavigationMode>,
+        didTapProcedure: Signal<Procedure>
+    ) -> Driver<[Procedure]> {
+        makeSelectedUnits(
+            navigationMode: navigationMode,
+            didTapUnit: didTapProcedure,
+            index: { procedure, selectedProcedures -> Int? in
+                selectedProcedures.firstIndex(where: { $0.id == procedure.id })
             }
         )
     }
@@ -334,6 +501,19 @@ private extension BookmarkViewModel {
             didTapUnit: didTapCondition,
             index: { condition, selectedConditions -> Int? in
                 selectedConditions.firstIndex(where: { $0.id == condition.id })
+            }
+        )
+    }
+    
+    func makeSelectedTerms(
+        navigationMode: Driver<BookmarkViewController.NavigationMode>,
+        didTapTerm: Signal<Term>
+    ) -> Driver<[Term]> {
+        makeSelectedUnits(
+            navigationMode: navigationMode,
+            didTapUnit: didTapTerm,
+            index: { term, selectedTerms -> Int? in
+                selectedTerms.firstIndex(where: { $0.id == term.id })
             }
         )
     }
@@ -386,6 +566,50 @@ private extension BookmarkViewModel {
         )
     }
     
+    func makeBookmarkDiseases() -> Driver<[Disease]> {
+        makeUnits(
+            downloadTrigger: DiseasesMediator.shared
+                .didSaveDiseaseId
+                .map { id in Void() },
+            removeTrigger: DiseasesMediator.shared
+                .didUnsaveDiseasesIds,
+            source: { [weak self] in
+                guard let self = self else {
+                    return .never()
+                }
+                
+                return self.diseasesManager
+                    .obtainBookmarksDiseases()
+                    .catchAndReturn([]) // TODO
+            },
+            remove: { ids, disease -> Bool in
+                ids.contains(where: { $0 == disease.id })
+            }
+        )
+    }
+    
+    func makeBookmarkProcedures() -> Driver<[Procedure]> {
+        makeUnits(
+            downloadTrigger: ProceduresMediator.shared
+                .didSaveProcedureId
+                .map { id in Void() },
+            removeTrigger: ProceduresMediator.shared
+                .didUnsaveProceduresIds,
+            source: { [weak self] in
+                guard let self = self else {
+                    return .never()
+                }
+                
+                return self.proceduresManager
+                    .obtainBookmarksProcedures()
+                    .catchAndReturn([]) // TODO
+            },
+            remove: { ids, procedure -> Bool in
+                ids.contains(where: { $0 == procedure.id })
+            }
+        )
+    }
+    
     func makeInteractions() -> Driver<[DrugsInteraction]> {
         makeUnits(
             downloadTrigger: DrugsMediator.shared
@@ -424,6 +648,28 @@ private extension BookmarkViewModel {
             },
             remove: { ids, condition -> Bool in
                 ids.contains(where: { $0 == condition.id })
+            }
+        )
+    }
+    
+    func makeBookmarkTerms() -> Driver<[Term]> {
+        makeUnits(
+            downloadTrigger: TermsMediator.shared
+                .didSaveTermId
+                .map { id in Void() },
+            removeTrigger: TermsMediator.shared
+                .didUnsaveTermsIds,
+            source: { [weak self] in
+                guard let self = self else {
+                    return .never()
+                }
+                
+                return self.termsManager
+                    .obtainBookmarkTerms()
+                    .catchAndReturn([]) // TODO
+            },
+            remove: { ids, term -> Bool in
+                ids.contains(where: { $0 == term.id })
             }
         )
     }
@@ -492,14 +738,20 @@ private extension BookmarkViewModel {
     func makeRoute(
         navigationMode: Driver<BookmarkViewController.NavigationMode>,
         didTapDrug: Signal<Drug>,
+        didTapDisease: Signal<Disease>,
+        didTapProcedure: Signal<Procedure>,
         didTapInteraction: Signal<DrugsInteraction>,
-        didTapCondition: Signal<SymptomsInteractionConditionDetails>
+        didTapCondition: Signal<SymptomsInteractionConditionDetails>,
+        didTapTerm: Signal<Term>
     ) -> Driver<Route> {
         Signal<Route>
             .merge(
                 didTapDrug.map { Route.drug($0) },
+                didTapDisease.map { Route.disease($0) },
+                didTapProcedure.map { Route.procedure($0) },
                 didTapInteraction.map { Route.interaction($0) },
-                didTapCondition.map { Route.condition($0) }
+                didTapCondition.map { Route.condition($0) },
+                didTapTerm.map { Route.term($0) }
             )
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(navigationMode) { ($0, $1) }
@@ -510,8 +762,11 @@ private extension BookmarkViewModel {
         didTapFilter: Driver<BookmarkFilterView.Filter>,
         didTapDelete: Signal<Void>,
         selectedDrugs: Driver<[Drug]>,
+        selectedDiseases: Driver<[Disease]>,
+        selectedProcedures: Driver<[Procedure]>,
         selectedInteractions: Driver<[DrugsInteraction]>,
-        selectedConditions: Driver<[SymptomsInteractionConditionDetails]>
+        selectedConditions: Driver<[SymptomsInteractionConditionDetails]>,
+        selectedTerms: Driver<[Term]>
     ) -> Driver<Bool> {
         let filter = didTapDelete
             .withLatestFrom(didTapFilter)
@@ -520,8 +775,11 @@ private extension BookmarkViewModel {
         let selected = Driver
             .combineLatest(
                 selectedDrugs.startWith([]),
+                selectedDiseases.startWith([]),
+                selectedProcedures.startWith([]),
                 selectedInteractions.startWith([]),
-                selectedConditions.startWith([])
+                selectedConditions.startWith([]),
+                selectedTerms.startWith([])
             )
 
         return filter
@@ -531,19 +789,28 @@ private extension BookmarkViewModel {
                     return .never()
                 }
 
-                let (drugs, interactions, conditions) = args
+                let (drugs, diseases, procedures, interactions, conditions, terms) = args
 
                 func source() -> Single<Void> {
                     switch filter {
                     case .drugs:
                         return self.drugsManager
                             .unsave(drugsIds: drugs.map { $0.id })
+                    case .diseases:
+                        return self.diseasesManager
+                            .unsave(diseasesIds: diseases.map { $0.id })
+                    case .procedures:
+                        return self.proceduresManager
+                            .unsave(proceduresIds: procedures.map { $0.id })
                     case .interactions:
                         return self.drugsManager
                             .unsave(interactionsIds: interactions.map { $0.id })
                     case .conditions:
                         return self.symptomsManager
                             .unsave(conditionsIds: conditions.map { $0.id })
+                    case .terms:
+                        return self.termsManager
+                            .unsave(termsIds: terms.map { $0.id })
                     }
                 }
 

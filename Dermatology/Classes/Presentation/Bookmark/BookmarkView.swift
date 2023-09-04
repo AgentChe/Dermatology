@@ -74,6 +74,9 @@ private extension BookmarkView {
 private extension BookmarkView {
     func makeFilterView() -> BookmarkFilterView {
         let view = BookmarkFilterView()
+        view.showsHorizontalScrollIndicator = false
+        view.contentInset = UIEdgeInsets.zero
+        view.contentOffset = CGPoint.zero
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

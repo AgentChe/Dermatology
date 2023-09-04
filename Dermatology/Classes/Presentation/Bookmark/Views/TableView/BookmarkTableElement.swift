@@ -8,8 +8,11 @@
 final class BookmarkTableElement {
     enum Unit {
         case drug(Drug)
+        case disease(Disease)
+        case procedure(Procedure)
         case interaction(BookmarkInteractionElement)
         case condition(SymptomsInteractionConditionDetails)
+        case term(Term)
     }
     
     let unit: Unit

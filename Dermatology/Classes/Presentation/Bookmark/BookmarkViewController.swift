@@ -56,11 +56,20 @@ final class BookmarkViewController: UIViewController {
                     .drugsButton.rx.tap
                     .map { BookmarkFilterView.Filter.drugs },
                 mainView.filterView
+                    .diseasesButton.rx.tap
+                    .map { BookmarkFilterView.Filter.diseases },
+                mainView.filterView
+                    .proceduresButton.rx.tap
+                    .map { BookmarkFilterView.Filter.procedures },
+                mainView.filterView
                     .interactionsButton.rx.tap
                     .map { BookmarkFilterView.Filter.interactions },
                 mainView.filterView
                     .conditionsButton.rx.tap
-                    .map { BookmarkFilterView.Filter.conditions }
+                    .map { BookmarkFilterView.Filter.conditions },
+                mainView.filterView
+                    .termsButton.rx.tap
+                    .map { BookmarkFilterView.Filter.terms }
             )
             .startWith(.drugs)
         
@@ -95,8 +104,11 @@ final class BookmarkViewController: UIViewController {
             didTapEdit: editButton.rx.tap.asSignal(),
             didTapDelete: didTapDeleteTrigger.asSignal(),
             didTapDrug: mainView.tableView.didTapDrug,
+            didTapDisease: mainView.tableView.didTapDisease,
+            didTapProcedure: mainView.tableView.didTapProcedure,
             didTapInteraction: mainView.tableView.didTapInteraction,
-            didTapCondition: mainView.tableView.didTapCondition
+            didTapCondition: mainView.tableView.didTapCondition,
+            didTapTerm: mainView.tableView.didTapTerm
         ))
         
         output.isEmpty
@@ -243,11 +255,20 @@ private extension BookmarkViewController {
         case .drug(let drug):
             let vc = DrugViewController.make(drug: drug)
             navigationController?.pushViewController(vc, animated: true)
+        case .disease(let disease):
+            let vc = DiseaseViewController.make(disease: disease)
+            navigationController?.pushViewController(vc, animated: true)
+        case .procedure(let procedure):
+            let vc = ProcedureViewController.make(procedure: procedure)
+            navigationController?.pushViewController(vc, animated: true)
         case .interaction(let interaction):
             let vc = InteractionCheckerViewController.make(drugsInteraction: interaction)
             present(vc, animated: true)
         case .condition(let condition):
             let vc = SICDetailsViewController.make(id: condition.id)
+            navigationController?.pushViewController(vc, animated: true)
+        case .term(let term):
+            let vc = TermViewController.make(term: term)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -13,8 +13,11 @@ final class BookmarkTableView: UITableView {
     lazy var elements = [BookmarkTableElement]()
     
     private lazy var didTapDrugTrigger = PublishRelay<Drug>()
+    private lazy var didTapDiseaseTrigger = PublishRelay<Disease>()
+    private lazy var didTapProcedureTrigger = PublishRelay<Procedure>()
     private lazy var didTapInteractionTrigger = PublishRelay<DrugsInteraction>()
     private lazy var didTapConditionTrigger = PublishRelay<SymptomsInteractionConditionDetails>()
+    private lazy var didTapTermTrigger = PublishRelay<Term>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -39,12 +42,24 @@ extension BookmarkTableView {
         didTapDrugTrigger.asSignal()
     }
     
+    var didTapDisease: Signal<Disease> {
+        didTapDiseaseTrigger.asSignal()
+    }
+    
+    var didTapProcedure: Signal<Procedure> {
+        didTapProcedureTrigger.asSignal()
+    }
+    
     var didTapInteraction: Signal<DrugsInteraction> {
         didTapInteractionTrigger.asSignal()
     }
     
     var didTapCondition: Signal<SymptomsInteractionConditionDetails> {
         didTapConditionTrigger.asSignal()
+    }
+    
+    var didTapTerm: Signal<Term> {
+        didTapTermTrigger.asSignal()
     }
 }
 
@@ -60,7 +75,23 @@ extension BookmarkTableView: UITableViewDataSource {
         case .drug(let drug):
             let cell = dequeueReusableCell(withIdentifier: String(describing: BookmarkDrugCell.self), for: indexPath) as! BookmarkDrugCell
             cell.setup(
-                drug: drug,
+                name: drug.name,
+                selected: element.seleted,
+                separatorHidden: (elements.count - 1) == indexPath.row
+            )
+            return cell
+        case .disease(let disease):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: BookmarkDrugCell.self), for: indexPath) as! BookmarkDrugCell
+            cell.setup(
+                name: disease.name,
+                selected: element.seleted,
+                separatorHidden: (elements.count - 1) == indexPath.row
+            )
+            return cell
+        case .procedure(let procedure):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: BookmarkDrugCell.self), for: indexPath) as! BookmarkDrugCell
+            cell.setup(
+                name: procedure.name,
                 selected: element.seleted,
                 separatorHidden: (elements.count - 1) == indexPath.row
             )
@@ -72,6 +103,14 @@ extension BookmarkTableView: UITableViewDataSource {
         case .condition(let condition):
             let cell = dequeueReusableCell(withIdentifier: String(describing: BookmarkConditionCell.self), for: indexPath) as! BookmarkConditionCell
             cell.setup(condition: condition, selected: element.seleted)
+            return cell
+        case .term(let term):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: BookmarkDrugCell.self), for: indexPath) as! BookmarkDrugCell
+            cell.setup(
+                name: term.name,
+                selected: element.seleted,
+                separatorHidden: (elements.count - 1) == indexPath.row
+            )
             return cell
         }
     }
@@ -88,10 +127,16 @@ extension BookmarkTableView: UITableViewDelegate {
         switch element.unit {
         case .drug(let drug):
             didTapDrugTrigger.accept(drug)
+        case .disease(let disease):
+            didTapDiseaseTrigger.accept(disease)
+        case .procedure(let procedure):
+            didTapProcedureTrigger.accept(procedure)
         case .interaction(let interaction):
             didTapInteractionTrigger.accept(interaction.interaction)
         case .condition(let condition):
             didTapConditionTrigger.accept(condition)
+        case .term(let term):
+            didTapTermTrigger.accept(term)
         }
     }
 }

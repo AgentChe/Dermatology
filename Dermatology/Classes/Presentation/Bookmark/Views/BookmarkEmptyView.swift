@@ -9,7 +9,7 @@ import UIKit
 
 final class BookmarkEmptyView: UIView {
     enum Unit {
-        case drugs, interactions, conditions
+        case drugs, diseases, procedures, interactions, conditions, terms
     }
     
     lazy var imageView = makeImageView()
@@ -46,6 +46,14 @@ extension BookmarkEmptyView {
             imageView.image = UIImage(named: "Bookmark.Empty.Drugs")
             titleLabel.attributedText = "Bookmark.Empty.Drugs.Title".localized.attributed(with: titleAttrs)
             textLabel.attributedText = "Bookmark.Empty.Drugs.Text".localized.attributed(with: textAttrs)
+        case .diseases:
+            imageView.image = UIImage(named: "Bookmark.Empty.Diseases")
+            titleLabel.attributedText = "Bookmark.Empty.Diseases.Title".localized.attributed(with: titleAttrs)
+            textLabel.attributedText = "Bookmark.Empty.Diseases.Text".localized.attributed(with: textAttrs)
+        case .procedures:
+            imageView.image = UIImage(named: "Bookmark.Empty.Procedures")
+            titleLabel.attributedText = "Bookmark.Empty.Procedures.Title".localized.attributed(with: titleAttrs)
+            textLabel.attributedText = "Bookmark.Empty.Procedures.Text".localized.attributed(with: textAttrs)
         case .interactions:
             imageView.image = UIImage(named: "Bookmark.Empty.Interactions")
             titleLabel.attributedText = "Bookmark.Empty.Interactions.Title".localized.attributed(with: titleAttrs)
@@ -54,6 +62,10 @@ extension BookmarkEmptyView {
             imageView.image = UIImage(named: "Bookmark.Empty.Conditions")
             titleLabel.attributedText = "Bookmark.Empty.Conditions.Title".localized.attributed(with: titleAttrs)
             textLabel.attributedText = "Bookmark.Empty.Conditions.Text".localized.attributed(with: textAttrs)
+        case .terms:
+            imageView.image = UIImage(named: "Bookmark.Empty.Terms")
+            titleLabel.attributedText = "Bookmark.Empty.Terms.Title".localized.attributed(with: titleAttrs)
+            textLabel.attributedText = "Bookmark.Empty.Terms.Text".localized.attributed(with: textAttrs)
         }
     }
 }

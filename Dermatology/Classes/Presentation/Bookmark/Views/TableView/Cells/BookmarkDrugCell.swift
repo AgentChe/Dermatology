@@ -35,8 +35,8 @@ final class BookmarkDrugCell: UITableViewCell {
 
 // MARK: Public
 extension BookmarkDrugCell {
-    func setup(drug: Drug, selected: Bool?, separatorHidden: Bool) {
-        nameLabel.attributedText = drug.name.attributed(with: attrs)
+    func setup(name: String, selected: Bool?, separatorHidden: Bool) {
+        nameLabel.attributedText = name.attributed(with: attrs)
         
         checkedView.image = UIImage(named: selected == true ? "Bookmark.Checked" : "Bookmark.Unchecked")
         checkedView.isHidden = selected == nil

@@ -1735,10 +1735,10 @@
 		DEFE82AB2AA5B1FB00FB96F0 /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE82AC2AA5B1FB00FB96F0 /* BookmarkViewController.swift */,
-				DEFE82AD2AA5B1FB00FB96F0 /* BookmarkView.swift */,
 				DEFE82AE2AA5B1FB00FB96F0 /* Views */,
+				DEFE82AC2AA5B1FB00FB96F0 /* BookmarkViewController.swift */,
 				DEFE82BA2AA5B1FB00FB96F0 /* BookmarkViewModel.swift */,
+				DEFE82AD2AA5B1FB00FB96F0 /* BookmarkView.swift */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -1746,9 +1746,9 @@
 		DEFE82AE2AA5B1FB00FB96F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE82B72AA5B1FB00FB96F0 /* Filter */,
 				DEFE82AF2AA5B1FB00FB96F0 /* TableView */,
 				DEFE82B62AA5B1FB00FB96F0 /* BookmarkEmptyView.swift */,
-				DEFE82B72AA5B1FB00FB96F0 /* Filter */,
 			);
 			path = Views;
 			sourceTree = "<group>";
