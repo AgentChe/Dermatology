@@ -88,10 +88,15 @@ private extension DrugViewModel {
                     
                     var openedElements: [DrugTableElement] = [.section(sectionElement)]
                     drugSection.blocks.forEach { block in
-                        if let title = block.title {
-                            openedElements.append(.title(title))
+                        switch block.value {
+                        case .text(let text):
+                            if let title = block.title {
+                                openedElements.append(.title(title))
+                            }
+                            openedElements.append(.text(text))
+                        case .image(let url):
+                            openedElements.append(.image(url))
                         }
-                        openedElements.append(.text(block.text))
                     }
                     if !isLast {
                         openedElements.append(.separator)

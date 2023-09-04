@@ -32,17 +32,17 @@ enum GetDiseaseDetailsResponse {
 //            let blocks = blocksArray.compactMap { json -> DiseaseBlock? in
 //                guard
 //                    let text = json["text"] as? String,
-//                    let code = json["code"] as? Int
+//                    let type = json["type"] as? Int
 //                else {
 //                    return nil
 //                }
 //
 //                var value: DiseaseBlock.Value
 //
-//                switch code {
-//                case 0:
-//                    value = .text(text)
+//                switch type {
 //                case 1:
+//                    value = .text(text)
+//                case 2:
 //                    guard let url = URL(string: text) else {
 //                        return nil
 //                    }

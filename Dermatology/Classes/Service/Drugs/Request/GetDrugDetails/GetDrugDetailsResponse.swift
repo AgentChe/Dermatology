@@ -5,6 +5,8 @@
 //  Created by Андрей Чернышев on 15.05.2023.
 //
 
+import Foundation
+
 enum GetDrugDetailsResponse {
     static func map(from response: Any) -> DrugDetails? {
         guard
@@ -27,13 +29,31 @@ enum GetDrugDetailsResponse {
             }
             
             let blocks = blocksArray.compactMap { json -> DrugBlock? in
-                guard let text = json["text"] as? String else {
+                guard
+                    let text = json["text"] as? String,
+                    let type = json["type"] as? Int
+                else {
                     return nil
                 }
-                
+
+                var value: DrugBlock.Value
+
+                switch type {
+                case 1:
+                    value = .text(text)
+                case 2:
+                    guard let url = URL(string: text) else {
+                        return nil
+                    }
+
+                    value = .image(url)
+                default:
+                    return nil
+                }
+
                 return DrugBlock(
                     title: json["title"] as? String,
-                    text: text
+                    value: value
                 )
             }
             
