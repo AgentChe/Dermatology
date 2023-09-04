@@ -78,22 +78,31 @@ private extension SCResultViewModel {
                         let mainSymptomId = collector.mainSymptomId,
                         let pregnant = collector.pregnant,
                         let currentMedicationsIds = collector.currentMedicationsIds,
-                        let medicalStatesIds = collector.medicalStatesIds
+                        let medicalStatesIds = collector.medicalStatesIds,
+                        let imageData = collector.image?.jpegData(compressionQuality: 0.5)
                     else {
                         return .error(ContentError(.notContent))
                     }
                     
                     return self.symptomsManager
-                        .checkOnInteraction(
-                            age: age,
-                            sex: sex,
-                            symptomsIds: symptoms.map { $0.id },
-                            mainSymptomId: mainSymptomId,
-                            pregnant: pregnant,
-                            currentMedicationsIds: currentMedicationsIds,
-                            medicalStatesIds: medicalStatesIds,
-                            imageURL: URL(string: "www.google.com")! // TODO: загружать картинку
-                        )
+                        .uploadSymptom(imageData: imageData)
+                        .flatMap { url -> Single<[SymptomsInteractionCondition]> in
+                            guard let url else {
+                                return .error(ContentError(.notContent))
+                            }
+                            
+                            return self.symptomsManager
+                                .checkOnInteraction(
+                                    age: age,
+                                    sex: sex,
+                                    symptomsIds: symptoms.map { $0.id },
+                                    mainSymptomId: mainSymptomId,
+                                    pregnant: pregnant,
+                                    currentMedicationsIds: currentMedicationsIds,
+                                    medicalStatesIds: medicalStatesIds,
+                                    imageURL: url
+                                )
+                        }
                 }
                 
                 func trigger(error: Error) -> Observable<Void> {

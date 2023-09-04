@@ -10,7 +10,7 @@ enum GetBookmarksTermsResponse {
         guard
             let json = response as? [String: Any],
             let data = json["_data"] as? [String: Any],
-            let termsArray = data["terms"] as? [[String: Any]]
+            let termsArray = data["drugs"] as? [[String: Any]]
         else {
             return []
         }

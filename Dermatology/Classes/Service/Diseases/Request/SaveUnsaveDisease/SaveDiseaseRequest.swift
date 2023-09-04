@@ -12,7 +12,7 @@ struct SaveDiseaseRequest: APIRequestBody {
     let id: Int
 
     var url: String {
-        GlobalDefinitions.domain + "/api/diseases/save"
+        GlobalDefinitions.domain + "/api/disease/save"
     }
     
     var method: HTTPMethod {

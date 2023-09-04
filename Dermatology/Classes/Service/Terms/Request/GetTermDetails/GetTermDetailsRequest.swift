@@ -12,7 +12,7 @@ struct GetTermDetailsRequest: APIRequestBody {
     let id: Int
     
     var url: String {
-        GlobalDefinitions.domain + "/api/drugs/details" // TODO: terms
+        GlobalDefinitions.domain + "/api/dermatologic_term/details"
     }
     
     var method: HTTPMethod {
@@ -23,7 +23,7 @@ struct GetTermDetailsRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "drug_id": id // TODO: term_id
+            "dermatologic_term_id": id 
         ]
     }
 }

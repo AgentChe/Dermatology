@@ -35,7 +35,7 @@ struct SymptomsCheckerRequest: APIRequestBody {
             "symptoms_ids": symptomsIds,
             "main_symptom_id": mainSymptomId,
             "pregnant": pregnant,
-            "image": imagePath // TODO: сверить название
+            "image_url": imagePath
         ]
         
         if let currentMedicationsIds = currentMedicationsIds {

@@ -6,15 +6,15 @@
 //
 
 final class GlobalDefinitions {
-    static let domain = "https://medical.awesum-apps.com"
-    static let apiKey = "ovAw1yMyhtwjKjHTweXI"
+    static let domain = "https://dermatology.awesum-apps.com"
+    static let apiKey = "7LexM8IGOSmIrpEimANw"
     
     static let otterScaleHost = "https://api.korrekted.com"
-    static let otterScaleApiKey = "qln0E4bCcZglB2u5"
+    static let otterScaleApiKey = "32xQjC9GIHM8NGbK"
     
-    static let appleAppID = "6449972006"
+    static let appleAppID = "6464321534"
     
-    static let applicationTag = "MEDICAL_GUIDES"
+    static let applicationTag = "DERMATOLOGY"
     static let amplitudeApiKey = "11f36fb9021dbfca4a1349a3b2284224"
     static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
@@ -23,7 +23,7 @@ final class GlobalDefinitions {
     static let contactUsUrl = "https://awesum-apps.com/contact"
     
     enum Paygate {
-        static let defaultLifetime = "medical.lifetime"
-        static let defaultMonthly = "medical.month"
+        static let defaultLifetime = "mobile.dermatology.lifetime"
+        static let defaultMonthly = "mobile.dermatology.monthly"
     }
 }

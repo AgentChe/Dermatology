@@ -25,6 +25,7 @@ protocol SymptomsManagerProtocol {
     func obtainBookmarksConditions() -> Single<[SymptomsInteractionConditionDetails]>
     func obtainMedicalStates(forceUpdate: Bool) -> Single<[MedicalState]>
     func obtainSymptomMeds(forceUpdate: Bool) -> Single<[SymptomMed]>
+    func uploadSymptom(imageData: Data) -> Single<URL?>
 }
 
 final class SymptomsManager {
@@ -37,6 +38,7 @@ final class SymptomsManager {
     private lazy var sessionManager = SessionManager()
 
     private lazy var defaultRequestWrapper = DefaultRequestWrapper()
+    private lazy var restAPITransport = RestAPITransport()
 }
 
 // MARK: SymptomsManagerProtocol
@@ -136,6 +138,18 @@ extension SymptomsManager: SymptomsManagerProtocol {
     
     func obtainSymptomMeds(forceUpdate: Bool) -> Single<[SymptomMed]> {
         forceUpdate ? loadSymptomMeds() : cachedSymptomMeds()
+    }
+    
+    func uploadSymptom(imageData: Data) -> Single<URL?> {
+        guard let userToken = sessionManager.getSession()?.userToken else {
+            return .error(SignError.tokenNotFound)
+        }
+        
+        let request = UploadSymptomsImageRequest(userToken: userToken)
+        
+        return restAPITransport
+            .formBody(data: imageData, request: request)
+            .map { UploadSymptomsImageResponse.map(from: $0) }
     }
 }
 

@@ -12,7 +12,7 @@ struct GetTermsRequest: APIRequestBody {
     let search: String?
 
     var url: String {
-        GlobalDefinitions.domain + "/api/drugs" // TODO: terms
+        GlobalDefinitions.domain + "/api/dermatologic_term"
     }
     
     var method: HTTPMethod {

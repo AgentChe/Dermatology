@@ -10,7 +10,7 @@ enum GetDiseasesResponse {
         guard
             let json = response as? [String: Any],
             let data = json["_data"] as? [String: Any],
-            let diseasesArray = data["drugs"] as? [[String: Any]] // TODO: diseases
+            let diseasesArray = data["drugs"] as? [[String: Any]]
         else {
             return []
         }

@@ -12,7 +12,7 @@ struct GetProceduresRequest: APIRequestBody {
     let search: String?
 
     var url: String {
-        GlobalDefinitions.domain + "/api/drugs" // TODO: procedures
+        GlobalDefinitions.domain + "/api/procedure"
     }
     
     var method: HTTPMethod {

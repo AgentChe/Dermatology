@@ -580,7 +580,6 @@ private extension BookmarkViewModel {
                 
                 return self.diseasesManager
                     .obtainBookmarksDiseases()
-                    .catchAndReturn([]) // TODO
             },
             remove: { ids, disease -> Bool in
                 ids.contains(where: { $0 == disease.id })
@@ -602,7 +601,6 @@ private extension BookmarkViewModel {
                 
                 return self.proceduresManager
                     .obtainBookmarksProcedures()
-                    .catchAndReturn([]) // TODO
             },
             remove: { ids, procedure -> Bool in
                 ids.contains(where: { $0 == procedure.id })
@@ -666,7 +664,6 @@ private extension BookmarkViewModel {
                 
                 return self.termsManager
                     .obtainBookmarkTerms()
-                    .catchAndReturn([]) // TODO
             },
             remove: { ids, term -> Bool in
                 ids.contains(where: { $0 == term.id })

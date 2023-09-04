@@ -11,7 +11,7 @@ struct GetBookmarksProceduresRequest: APIRequestBody {
     let userToken: String
 
     var url: String {
-        GlobalDefinitions.domain + "/api/procedures/bookmarks"
+        GlobalDefinitions.domain + "/api/procedure/bookmarks"
     }
     
     var method: HTTPMethod {

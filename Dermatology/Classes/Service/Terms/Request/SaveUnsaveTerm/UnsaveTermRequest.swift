@@ -12,7 +12,7 @@ struct UnsaveTermRequest: APIRequestBody {
     let ids: [Int]
 
     var url: String {
-        GlobalDefinitions.domain + "/api/term/unsave"
+        GlobalDefinitions.domain + "/api/dermatologic_term/unsave"
     }
     
     var method: HTTPMethod {

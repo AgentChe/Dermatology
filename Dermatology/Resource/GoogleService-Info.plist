@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>383900223161-vloe7q17ftvl0vcc2t499mfjh6ct4jf5.apps.googleusercontent.com</string>
+	<string>358794450955-qh6l5s6g8eut7kcnd5ecphaj8cj6kfdo.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.383900223161-vloe7q17ftvl0vcc2t499mfjh6ct4jf5</string>
+	<string>com.googleusercontent.apps.358794450955-qh6l5s6g8eut7kcnd5ecphaj8cj6kfdo</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA4oaGWRS2cQmQC2tB3HSJjSHaHdvlw11c</string>
+	<string>AIzaSyDm8DQmRCac-FrH-L2zdzGVUcSl7pG1RTs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>383900223161</string>
+	<string>358794450955</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>mobile.guides</string>
+	<string>mobile.dermatology</string>
 	<key>PROJECT_ID</key>
-	<string>medical-guides</string>
+	<string>dermatology-25649</string>
 	<key>STORAGE_BUCKET</key>
-	<string>medical-guides.appspot.com</string>
+	<string>dermatology-25649.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:383900223161:ios:7d8886294007e496643d68</string>
+	<string>1:358794450955:ios:38b4a3a07d79da9a0d4f0e</string>
 </dict>
 </plist>

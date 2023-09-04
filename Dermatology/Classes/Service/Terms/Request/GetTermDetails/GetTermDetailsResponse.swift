@@ -20,7 +20,7 @@ enum GetTermDetailsResponse {
             return nil
         }
         
-        var sections = sectionsArray.compactMap { json -> TermSection? in
+        let sections = sectionsArray.compactMap { json -> TermSection? in
             guard
                 let name = json["name"] as? String,
                 let blocksArray = json["blocks"] as? [[String: Any]]
@@ -28,45 +28,32 @@ enum GetTermDetailsResponse {
                 return nil
             }
             
-            // TODO
-//            let blocks = blocksArray.compactMap { json -> TermBlock? in
-//                guard
-//                    let text = json["text"] as? String,
-//                    let type = json["type"] as? Int
-//                else {
-//                    return nil
-//                }
-//
-//                var value: TermBlock.Value
-//
-//                switch type {
-//                case 1:
-//                    value = .text(text)
-//                case 2:
-//                    guard let url = URL(string: text) else {
-//                        return nil
-//                    }
-//
-//                    value = .image(url)
-//                default:
-//                    return nil
-//                }
-//
-//                return TermBlock(
-//                    title: json["title"] as? String,
-//                    value: value
-//                )
-//            }
-            
-            // TODO: remove
-            var blocks = blocksArray.compactMap { json -> TermBlock? in
-                guard let text = json["text"] as? String else {
+            let blocks = blocksArray.compactMap { json -> TermBlock? in
+                guard
+                    let text = json["text"] as? String,
+                    let type = json["type"] as? Int
+                else {
                     return nil
                 }
-                
+
+                var value: TermBlock.Value
+
+                switch type {
+                case 1:
+                    value = .text(text)
+                case 2:
+                    guard let url = URL(string: text) else {
+                        return nil
+                    }
+
+                    value = .image(url)
+                default:
+                    return nil
+                }
+
                 return TermBlock(
                     title: json["title"] as? String,
-                    value: .text(text)
+                    value: value
                 )
             }
             
@@ -75,9 +62,6 @@ enum GetTermDetailsResponse {
                 blocks: blocks
             )
         }
-        
-        // TODO
-        sections.append(TermSection(name: "Images", blocks: [.init(title: "Images", value: .image(URL(string: "https://cdn.vox-cdn.com/thumbor/3T1ceK5TCCxnT3rNx0Olz7amHjw=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19865782/Symptoms.jpg")!))]))
         
         return TermDetails(
             id: id,

@@ -12,7 +12,7 @@ struct SaveTermRequest: APIRequestBody {
     let id: Int
 
     var url: String {
-        GlobalDefinitions.domain + "/api/term/save"
+        GlobalDefinitions.domain + "/api/dermatologic_term/save"
     }
     
     var method: HTTPMethod {
