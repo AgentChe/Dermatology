@@ -1,0 +1,166 @@
+/* 
+  Localizable.strings
+  Soccer
+
+  Created by Андрей Чернышев on 01.02.2023.
+  
+*/
+
+// MARK: General
+"Cancel" = "Cancel";
+"Continue" = "Continue";
+"Next" = "Next";
+"OK" = "OK";
+"Yes" = "Yes";
+"No" = "No";
+
+// MARK: ImagePicker
+"ImagePicker.TakePhoto" = "Take a photo";
+"ImagePicker.CameraRoll" = "Camera roll";
+"ImagePicker.PhotoLibrary" = "Photo library";
+
+// MARK: TryAgain
+"TryAgain.Title" = "The app failed to perform a request";
+"TryAgain.SubTitle" = "If there’s a connection issue on your side try one more time. If the connection is fine and the error keeps on repeating please get in touch with the support";
+"TryAgain.Button" = "Try again";
+"TryAgain.Contact" = "Contact the support";
+
+// MARK: Splash
+"Splash.Preloader1" = "Checking your account...";
+"Splash.Preloader2" = "Syncing the drug library";
+"Splash.Preloader3" = "Setting up your account...";
+
+// MARK: Paygate
+"Paygate.Title" = "Get unlimited access";
+"Paygate.Cell1" = "Comprehensive Diseases & Conditions\nDatabase";
+"Paygate.Cell2" = "Dermatologic Terms &\nProcedures Guides";
+"Paygate.Cell3" = "Photo-based Symptom Checker";
+"Paygate.Secured" = "Secured by the App Store. Cancel anytime.";
+"Paygate.TermsOfUse" = "Terms of use";
+"Paygate.And" = "and";
+"Paygate.PrivacyPolicy" = "Privacy Policy";
+"Paygate.RestorePurchases" = "Restore Purchase";
+"Paygate.Failed" = "Failed to make purchase";
+"Paygate.Monthly.Name1" = "7 days for free";
+"Paygate.Monthly.Name2" = "Quick prep";
+"Paygate.Monthly.Bottom1" = "After 7-day trial";
+"Paygate.Monthly.Bottom2" = "Trial is over";
+"Paygate.Lifetime.Name" = "Lifetime";
+"Paygate.Lifetime.PriceDescription" = "\nIn terms of  1  year";
+"Paygate.Lifetime.BottomDescription" = "once";
+"Paygate.Discount" = "SAVE %i%%";
+"Paygate.Price.Period" = "month";
+
+// MARK: Disclaimer
+"Disclaimer.Title" = "Disclaimer";
+"Disclaimer.Text" = "The information provided in this application MUST NOT be regarded as a replacement for a professional medical advice. All of the medical decisions you make SHOULD BE ADVISED BY A QUALIFIED DOCTOR who is able to take all of your conditions into account.";
+"Disclaimer.Text.Bold1" = "MUST NOT";
+"Disclaimer.Text.Bold2" = "SHOULD BE ADVISED BY A QUALIFIED DOCTOR";
+
+// MARK: Onboarding
+"Onboarding.DrugGuide.Title" = "Complete guide to\ndermatology";
+"Onboarding.DrugGuide.Text" = "Find comprehensive, up-to-date, and well-structured information used by dermatologists – drugs, diseases, procedures and more.";
+"Onboarding.InteractionChecker.Title" = "Interaction Checker";
+"Onboarding.InteractionChecker.Text" = "Analyze drug interactions to determine which potentially unsafe drug combinations are best avoided.";
+"Onboarding.SymptomChecker.Title" = "Symptom Checker";
+"Onboarding.SymptomChecker.Text" = "Determine a possible diagnosis and appropriate treatment by selecting symptoms and answering a few simple questions.";
+"Onboarding.Disclaimer.Placeholder" = "The information provided in the app MUST NOT be regarded as a replacement for a professional medical advice. Read more ";
+
+// MARK: Home
+"Home.Title" = "Dermatology Guides";
+"Home.DrugGuide.Title" = "Drug Guide";
+"Home.DrugGuide.Text" = "Find comprehensive, up-to-date, and well-structured drug information – precautions, side effects, interactions, and more";
+"Home.InteractionChecker.Title" = "Interaction Checker";
+"Home.InteractionChecker.Text" = "Analyze drug interactions to determine which potentially unsafe drug combinations are best avoided";
+"Home.SymptomChecker.Title" = "Symptom Checker";
+"Home.SymptomChecker.Text" = "Determine a possible diagnosis and appropriate treatment by selecting symptoms and answering a few simple questions";
+"Home.Bookmark.Title" = "Bookmark";
+"Home.Bookmark.Text" = "Save and get easy and fast access to selected medications and more";
+"Home.Disclaimer" = "Disclaimer";
+
+// MARK: Settings
+"Settings.Title" = "Settings";
+"Settings.Disclaimer" = "Disclaimer";
+"Settings.ContactUs" = "Contact us";
+"Settings.TermsOfUse" = "Terms of use";
+"Settings.PrivacyPolicy" = "Privacy policy";
+
+// MARK: SelectUnit
+"SelectUnit.Title.Drugs" = "Drugs";
+"SelectUnit.Title.Symptoms" = "Symptoms";
+"SelectUnit.Title.MedicalStates" = "Medical States";
+"SelectUnit.Search.Placeholder" = "Enter to start";
+"SelectUnit.Empty" = "We can’t find\nanything";
+
+// MARK: InteractionChecker
+"InteractionChecker.Title" = "Interaction checker";
+"InteractionChecker.Drug.Number" = "Drug %i";
+"InteractionChecker.ChooseDrug" = "Choose drug";
+"InteractionChecker.Check" = "Check";
+"InteractionChecker.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+"InteractionChecker.Minor" = "Minor";
+"InteractionChecker.MonitorClosely" = "Monitor Closely";
+"InteractionChecker.Serious" = "Serious";
+"InteractionChecker.DontUseTogether" = "Don't use together";
+
+// MARK: NoInteractionsFound
+"NoInteractionsFound.Title" = "No interactions found";
+"NoInteractionsFound.SubTitle" = "There are no potentially unsafe interactions detected for these drugs.";
+"NoInteractionsFound.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+
+// MARK: Drugs
+"Drugs.Title" = "Drug Guide";
+"Drugs.Search" = "Search";
+
+// MARK: SymptomChecker
+"SymptomChecker.Title" = "Symptom Checker";
+"SymptomChecker.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+"SymptomChecker.Personal.Age" = "Age";
+"SymptomChecker.Personal.Sex" = "Sex";
+"SymptomChecker.Personal.Male" = "Male";
+"SymptomChecker.Personal.Female" = "Female";
+"SymptomChecker.Symptoms.SelectTitle" = "What are your symptoms?";
+"SymptomChecker.Symptoms.SelectPlaceholder" = "Enter your main symptom";
+"SymptomChecker.Confirm.MostSymptom" = "Which symptom is bothering you the most?";
+"SymptomChecker.Confirm.Pregnant" = "Could you be pregnant?";
+"SymptomChecker.Confirm.Yes" = "Yes";
+"SymptomChecker.Confirm.No" = "No";
+"SymptomChecker.Confirm.CurrentMedications" = "Current medications";
+"SymptomChecker.Confirm.ChooseDrug" = "Choose drug";
+"SymptomChecker.Confirm.ChooseCondition" = "Choose condition";
+"SymptomChecker.Confirm.MedicationsPlaceholder" = "Only some medications are factored into results.";
+"SymptomChecker.Confirm.Conditions" = "Past or current conditions";
+"SymptomChecker.Confirm.ConditionsPlaceholder" = "Only some conditions are factored into results.";
+"SymptomChecker.Confirm.MedicationsDescription" = "Only some medications are factored into results.";
+"SymptomChecker.Confirm.Conditions.Description" = "Only some conditions are factored into results.";
+"SymptomChecker.Result.Title" = "Conditions that match your symptoms";
+"SymptomChecker.Result.Low" = "Low Match";
+"SymptomChecker.Result.Fair" = "Fair Match";
+"SymptomChecker.Result.Moderate" = "Moderate Match";
+"SymptomChecker.Result.StrongMatch" = "Strong Match";
+"SymptomChecker.Result.ReadMore" = "Read more";
+
+// MARK: SICDetails
+"SICDetails.ConditionDetails" = "CONDITION DETAILS";
+"SICDetails.TreatmentOptions" = "TREATMENT OPTIONS";
+"SICDetails.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+
+// MARK: Bookmark
+"Bookmark.Title" = "Bookmark";
+"Bookmark.Done" = "Done";
+"Bookmark.Drugs" = "Drugs";
+"Bookmark.Interactions" = "Interactions";
+"Bookmark.SideEffect.Minor" = "Minor";
+"Bookmark.SideEffect.MonitorClosely" = "Monitor Closely";
+"Bookmark.SideEffect.Serious" = "Serious";
+"Bookmark.SideEffect.DontUseTogether" = "Don't use together";
+"Bookmark.Conditions" = "Conditions";
+"Bookmark.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+"Bookmark.ConfirmDelete.Title" = "Are you sure?";
+"Bookmark.ConfirmDelete.Text" = "Here’s some alert text. It can span multiple lines if needed!";
+"Bookmark.Empty.Drugs.Title" = "Nothing here yet";
+"Bookmark.Empty.Drugs.Text" = "Saved drugs will appear here";
+"Bookmark.Empty.Interactions.Title" = "Nothing here yet";
+"Bookmark.Empty.Interactions.Text" = "Saved interactions will appear here";
+"Bookmark.Empty.Conditions.Title" = "Nothing here yet";
+"Bookmark.Empty.Conditions.Text" = "Saved conditions will appear here";
