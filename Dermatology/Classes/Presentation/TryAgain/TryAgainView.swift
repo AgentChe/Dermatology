@@ -57,7 +57,7 @@ private extension TryAgainView {
             imageView.widthAnchor.constraint(equalToConstant: 344.scale),
             imageView.heightAnchor.constraint(equalToConstant: 262.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor)
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 16.scale)
         ])
         
         NSLayoutConstraint.activate([

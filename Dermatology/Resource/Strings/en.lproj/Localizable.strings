@@ -79,6 +79,8 @@
 "Home.Disclaimer" = "Disclaimer";
 "Home.Diseases.Title" = "Disease Guide";
 "Home.Diseases.Text" = "Discover an extensive guide covering various dermatological diseases and conditions";
+"Home.Procedures.Title" = "Procedures Guide";
+"Home.Procedures.Text" = "A concise glossary of essential procedures utilized in the field of dermatology";
 
 // MARK: Settings
 "Settings.Title" = "Settings";
@@ -169,3 +171,6 @@
 
 // MARK: Diseases
 "Diseases.Title" = "Diseases Guide";
+
+// MARK: Procedures
+"Procedures.Title" = "Procedures Guide";

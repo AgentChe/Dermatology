@@ -17,6 +17,7 @@ final class HomeViewModel {
         case bookmark
         case disclaimer
         case diseases
+        case procedures
     }
 }
 
@@ -30,6 +31,7 @@ extension HomeViewModel {
         let didTapBookmark: Signal<Void>
         let didTapDisclaimer: Signal<Void>
         let didTapDiseases: Signal<Void>
+        let didTapProcedures: Signal<Void>
     }
     
     struct Output {
@@ -52,6 +54,7 @@ private extension HomeViewModel {
             .just([
                 HomeTableElement(block: .drugGuide),
                 HomeTableElement(block: .diseases),
+                HomeTableElement(block: .procedures),
                 HomeTableElement(block: .interactionChecker),
                 HomeTableElement(block: .symptomChecker),
                 HomeTableElement(block: .bookmark)
@@ -68,7 +71,8 @@ private extension HomeViewModel {
                 input.didTapSymptomChecker.map { Route.symptomChecker },
                 input.didTapBookmark.map { Route.bookmark },
                 input.didTapDisclaimer.map { Route.disclaimer },
-                input.didTapDiseases.map { Route.diseases }
+                input.didTapDiseases.map { Route.diseases },
+                input.didTapProcedures.map { Route.procedures }
             )
             .asDriver(onErrorDriveWith: .never())
     }

@@ -32,8 +32,9 @@ final class HomeViewController: UIViewController {
             didTapSymptomChecker: mainView.tableView.didTapSymptomChecker,
             didTapBookmark: mainView.tableView.didTapBookmark,
             didTapDisclaimer: mainView.disclaimerButton.rx.tap.asSignal(),
-            didTapDiseases: mainView.tableView.didTapDisease)
-        )
+            didTapDiseases: mainView.tableView.didTapDisease,
+            didTapProcedures: mainView.tableView.didTapProcedures
+        ))
         
         output.elements
             .drive(Binder(mainView.tableView) { base, elements in
@@ -96,6 +97,9 @@ private extension HomeViewController {
             present(vc, animated: true)
         case .diseases:
             let vc = DiseasesViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
+        case .procedures:
+            let vc = ProceduresViewController.make()
             navigationController?.pushViewController(vc, animated: true)
         }
     }
