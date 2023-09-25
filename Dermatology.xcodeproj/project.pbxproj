@@ -77,6 +77,10 @@
 		DEB28CFD2AA6092100DA4EF8 /* TermViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */; };
 		DEB28CFF2AA6278F00DA4EF8 /* SCCImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28CFE2AA6278F00DA4EF8 /* SCCImageCell.swift */; };
 		DEB28D032AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB28D022AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift */; };
+		DEC688042AC1D77D00BCC83B /* DrugsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC688032AC1D77D00BCC83B /* DrugsTableElement.swift */; };
+		DEC688062AC1DA4A00BCC83B /* DiseasesTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC688052AC1DA4A00BCC83B /* DiseasesTableElement.swift */; };
+		DEC688082AC1DB4D00BCC83B /* ProceduresTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC688072AC1DB4D00BCC83B /* ProceduresTableElement.swift */; };
+		DEC6880A2AC1DC3A00BCC83B /* TermsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC688092AC1DC3A00BCC83B /* TermsTableElement.swift */; };
 		DECC0BF02AA63D5D003B1EA3 /* UploadSymptomsImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECC0BEF2AA63D5D003B1EA3 /* UploadSymptomsImageRequest.swift */; };
 		DECC0BF22AA63D65003B1EA3 /* UploadSymptomsImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECC0BF12AA63D65003B1EA3 /* UploadSymptomsImageResponse.swift */; };
 		DECC0BF62AA64838003B1EA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DECC0BF52AA64838003B1EA3 /* GoogleService-Info.plist */; };
@@ -411,6 +415,10 @@
 		DEB28CF52AA6092100DA4EF8 /* TermViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewModel.swift; sourceTree = "<group>"; };
 		DEB28CFE2AA6278F00DA4EF8 /* SCCImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCImageCell.swift; sourceTree = "<group>"; };
 		DEB28D022AA6290C00DA4EF8 /* SCCImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCImagePlaceholderView.swift; sourceTree = "<group>"; };
+		DEC688032AC1D77D00BCC83B /* DrugsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsTableElement.swift; sourceTree = "<group>"; };
+		DEC688052AC1DA4A00BCC83B /* DiseasesTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesTableElement.swift; sourceTree = "<group>"; };
+		DEC688072AC1DB4D00BCC83B /* ProceduresTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceduresTableElement.swift; sourceTree = "<group>"; };
+		DEC688092AC1DC3A00BCC83B /* TermsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsTableElement.swift; sourceTree = "<group>"; };
 		DECC0BEF2AA63D5D003B1EA3 /* UploadSymptomsImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSymptomsImageRequest.swift; sourceTree = "<group>"; };
 		DECC0BF12AA63D65003B1EA3 /* UploadSymptomsImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSymptomsImageResponse.swift; sourceTree = "<group>"; };
 		DECC0BF52AA64838003B1EA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -807,6 +815,7 @@
 			children = (
 				DEB28C7F2AA5CF4300DA4EF8 /* DiseasesTableView.swift */,
 				DEB28C812AA5CF4800DA4EF8 /* DiseasesTableCell.swift */,
+				DEC688052AC1DA4A00BCC83B /* DiseasesTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -933,6 +942,7 @@
 			children = (
 				DEB28CBC2AA5FD5E00DA4EF8 /* ProceduresTableCell.swift */,
 				DEB28CBD2AA5FD5E00DA4EF8 /* ProceduresTableView.swift */,
+				DEC688072AC1DB4D00BCC83B /* ProceduresTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1039,6 +1049,7 @@
 			children = (
 				DEB28CF02AA6092100DA4EF8 /* TermsTableCell.swift */,
 				DEB28CF12AA6092100DA4EF8 /* TermsTableView.swift */,
+				DEC688092AC1DC3A00BCC83B /* TermsTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1914,6 +1925,7 @@
 			children = (
 				DEFE82D92AA5B1FB00FB96F0 /* DrugsTableView.swift */,
 				DEFE82DA2AA5B1FB00FB96F0 /* DrugsTableCell.swift */,
+				DEC688032AC1D77D00BCC83B /* DrugsTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -2621,6 +2633,7 @@
 				DEFE83742AA5B1FB00FB96F0 /* Toast.swift in Sources */,
 				DEFE83BC2AA5B1FB00FB96F0 /* SymtomsCheckerBlock.swift in Sources */,
 				DEFE835B2AA5B1FB00FB96F0 /* UIDevice+Extension.swift in Sources */,
+				DEC688082AC1DB4D00BCC83B /* ProceduresTableElement.swift in Sources */,
 				DEB28CE62AA604C800DA4EF8 /* GetTermDetailsResponse.swift in Sources */,
 				DEB28CFD2AA6092100DA4EF8 /* TermViewModel.swift in Sources */,
 				DEFE84052AA5B1FB00FB96F0 /* DrugTableView.swift in Sources */,
@@ -2668,6 +2681,7 @@
 				DEFE83AD2AA5B1FB00FB96F0 /* SyncTokensRequest.swift in Sources */,
 				DEB28CA42AA5F9FD00DA4EF8 /* ProceduresMediator.swift in Sources */,
 				DEFE83CB2AA5B1FB00FB96F0 /* GetConditionDetailsResponse.swift in Sources */,
+				DEC688062AC1DA4A00BCC83B /* DiseasesTableElement.swift in Sources */,
 				DEB28CAA2AA5F9FD00DA4EF8 /* SaveProcedureRequest.swift in Sources */,
 				DEFE838B2AA5B1FB00FB96F0 /* DrugDetails.swift in Sources */,
 				DEFE84292AA5B1FB00FB96F0 /* SCConfirmDescriptionCell.swift in Sources */,
@@ -2779,6 +2793,7 @@
 				DEFE83962AA5B1FB00FB96F0 /* UnsaveInteractionDrugsRequest.swift in Sources */,
 				DEFE837C2AA5B1FB00FB96F0 /* GradientView.swift in Sources */,
 				DEFE843D2AA5B1FB00FB96F0 /* TryAgainViewController.swift in Sources */,
+				DEC688042AC1D77D00BCC83B /* DrugsTableElement.swift in Sources */,
 				DEFE83892AA5B1FB00FB96F0 /* DrugsManager.swift in Sources */,
 				DEB28CA62AA5F9FD00DA4EF8 /* Procedure.swift in Sources */,
 				DECC0BF02AA63D5D003B1EA3 /* UploadSymptomsImageRequest.swift in Sources */,
@@ -2795,6 +2810,7 @@
 				DEB28CFF2AA6278F00DA4EF8 /* SCCImageCell.swift in Sources */,
 				DEFE839D2AA5B1FB00FB96F0 /* GetDrugsResponse.swift in Sources */,
 				DEFE844F2AA5B1FB00FB96F0 /* InteractionCheckerResultCell.swift in Sources */,
+				DEC6880A2AC1DC3A00BCC83B /* TermsTableElement.swift in Sources */,
 				DEFE836C2AA5B1FB00FB96F0 /* Fonts.swift in Sources */,
 				DEFE835E2AA5B1FB00FB96F0 /* Collection+Extension.swift in Sources */,
 			);

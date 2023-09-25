@@ -62,9 +62,14 @@ extension TermsViewController {
     
     func route(_ route: TermsViewModel.Route) {
         switch route {
-        case .details(let term):
-            let vc = TermViewController.make(term: term)
-            navigationController?.pushViewController(vc, animated: true)
+        case .details(let element):
+            if element.locked {
+                let vc = PaygateViewController.make()
+                present(vc, animated: true)
+            } else {
+                let vc = TermViewController.make(term: element.term)
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

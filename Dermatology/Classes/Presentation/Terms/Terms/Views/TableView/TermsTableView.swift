@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 
 final class TermsTableView: UITableView {
-    lazy var elements = [Term]()
+    lazy var elements = [TermsTableElement]()
     
-    private lazy var didSelectTrigger = PublishRelay<Term>()
+    private lazy var didSelectTrigger = PublishRelay<TermsTableElement>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -27,13 +27,13 @@ final class TermsTableView: UITableView {
 
 // MARK: Public
 extension TermsTableView {
-    func setup(elements: [Term]) {
+    func setup(elements: [TermsTableElement]) {
         self.elements = elements
         
         reloadData()
     }
     
-    var didSelect: Signal<Term> {
+    var didSelect: Signal<TermsTableElement> {
         didSelectTrigger.asSignal()
     }
 }

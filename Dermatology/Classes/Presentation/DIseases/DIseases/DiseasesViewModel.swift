@@ -10,7 +10,7 @@ import RxCocoa
 
 final class DiseasesViewModel {
     enum Route {
-        case details(Disease)
+        case details(DiseasesTableElement)
     }
     
     private lazy var diseasesManager = DiseasesManager()
@@ -20,19 +20,21 @@ final class DiseasesViewModel {
 extension DiseasesViewModel {
     struct Input {
         let didSearch: Signal<String>
-        let didSelect: Signal<Disease>
+        let didSelect: Signal<DiseasesTableElement>
     }
     
     struct Output {
-        let elements: Driver<[Disease]>
+        let elements: Driver<[DiseasesTableElement]>
         let route: Driver<Route>
     }
     
     func configure(input: Input) -> Output {
+        let activeSubscription = makeActiveSubscription()
         let diseases = makeDiseases()
         
         return Output(
             elements: makeElements(
+                activeSubscription: activeSubscription,
                 diseases: diseases,
                 didSearch: input.didSearch
             ),
@@ -44,21 +46,30 @@ extension DiseasesViewModel {
 // MARK: Private
 private extension DiseasesViewModel {
     func makeElements(
+        activeSubscription: Driver<Bool>,
         diseases: Driver<[Disease]>,
         didSearch: Signal<String>
-    ) -> Driver<[Disease]> {
+    ) -> Driver<[DiseasesTableElement]> {
         Driver
             .combineLatest(
+                activeSubscription,
                 diseases,
                 didSearch.asDriver(onErrorDriveWith: .never())
             )
-            .map { diseases, search -> [Disease] in
-                guard !search.isEmpty else {
-                    return diseases
+            .map { activeSubscription, diseases, search -> [DiseasesTableElement] in
+                var array = diseases
+                
+                if !search.isEmpty {
+                    array = array.filter { disease -> Bool in
+                        disease.name.contains(search)
+                    }
                 }
                 
-                return diseases.filter { disease -> Bool in
-                    disease.name.contains(search)
+                return array.enumerated().map { index, disease -> DiseasesTableElement in
+                    DiseasesTableElement(
+                        disease: disease,
+                        locked: (index >= 3) ? !activeSubscription : false
+                    )
                 }
             }
     }
@@ -69,9 +80,17 @@ private extension DiseasesViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func makeRoute(didSelect: Signal<Disease>) -> Driver<Route> {
+    func makeRoute(didSelect: Signal<DiseasesTableElement>) -> Driver<Route> {
         didSelect
             .asDriver(onErrorDriveWith: .never())
             .map { Route.details($0) }
+    }
+    
+    func makeActiveSubscription() -> Driver<Bool> {
+        PurchaseValidationObserver.shared
+            .didValidatedWithActiveSubscription
+            .map { SessionManager().hasActiveSubscriptions() }
+            .startWith(SessionManager().hasActiveSubscriptions())
+            .asDriver(onErrorJustReturn: false)
     }
 }

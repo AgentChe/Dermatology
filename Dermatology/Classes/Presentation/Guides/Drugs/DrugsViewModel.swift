@@ -10,7 +10,7 @@ import RxCocoa
 
 final class DrugsViewModel {
     enum Route {
-        case details(Drug)
+        case details(DrugsTableElement)
     }
     
     private lazy var drugsManager = DrugsManager()
@@ -20,19 +20,21 @@ final class DrugsViewModel {
 extension DrugsViewModel {
     struct Input {
         let didSearch: Signal<String>
-        let didSelect: Signal<Drug>
+        let didSelect: Signal<DrugsTableElement>
     }
     
     struct Output {
-        let elements: Driver<[Drug]>
+        let elements: Driver<[DrugsTableElement]>
         let route: Driver<Route>
     }
     
     func configure(input: Input) -> Output {
+        let activeSubscription = makeActiveSubscription()
         let drugs = makeDrugs()
         
         return Output(
             elements: makeElements(
+                activeSubscription: activeSubscription,
                 drugs: drugs,
                 didSearch: input.didSearch
             ),
@@ -44,21 +46,30 @@ extension DrugsViewModel {
 // MARK: Private
 private extension DrugsViewModel {
     func makeElements(
+        activeSubscription: Driver<Bool>,
         drugs: Driver<[Drug]>,
         didSearch: Signal<String>
-    ) -> Driver<[Drug]> {
+    ) -> Driver<[DrugsTableElement]> {
         Driver
             .combineLatest(
+                activeSubscription,
                 drugs,
                 didSearch.asDriver(onErrorDriveWith: .never())
             )
-            .map { drugs, search -> [Drug] in
-                guard !search.isEmpty else {
-                    return drugs
+            .map { activeSubscription, drugs, search -> [DrugsTableElement] in
+                var array = drugs
+                
+                if !search.isEmpty {
+                    array = array.filter { drug -> Bool in
+                        drug.name.contains(search)
+                    }
                 }
                 
-                return drugs.filter { drug -> Bool in
-                    drug.name.contains(search)
+                return array.enumerated().map { index, drug -> DrugsTableElement in
+                    DrugsTableElement(
+                        drug: drug,
+                        locked: (index >= 3) ? !activeSubscription : false
+                    )
                 }
             }
     }
@@ -69,9 +80,17 @@ private extension DrugsViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func makeRoute(didSelect: Signal<Drug>) -> Driver<Route> {
+    func makeRoute(didSelect: Signal<DrugsTableElement>) -> Driver<Route> {
         didSelect
             .asDriver(onErrorDriveWith: .never())
             .map { Route.details($0) }
+    }
+    
+    func makeActiveSubscription() -> Driver<Bool> {
+        PurchaseValidationObserver.shared
+            .didValidatedWithActiveSubscription
+            .map { SessionManager().hasActiveSubscriptions() }
+            .startWith(SessionManager().hasActiveSubscriptions())
+            .asDriver(onErrorJustReturn: false)
     }
 }

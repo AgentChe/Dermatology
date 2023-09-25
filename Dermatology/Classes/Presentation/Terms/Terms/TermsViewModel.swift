@@ -10,7 +10,7 @@ import RxCocoa
 
 final class TermsViewModel {
     enum Route {
-        case details(Term)
+        case details(TermsTableElement)
     }
     
     private lazy var termsManager = TermsManager()
@@ -20,19 +20,21 @@ final class TermsViewModel {
 extension TermsViewModel {
     struct Input {
         let didSearch: Signal<String>
-        let didSelect: Signal<Term>
+        let didSelect: Signal<TermsTableElement>
     }
     
     struct Output {
-        let elements: Driver<[Term]>
+        let elements: Driver<[TermsTableElement]>
         let route: Driver<Route>
     }
     
     func configure(input: Input) -> Output {
+        let activeSubscription = makeActiveSubscription()
         let terms = makeTerms()
         
         return Output(
             elements: makeElements(
+                activeSubscription: activeSubscription,
                 terms: terms,
                 didSearch: input.didSearch
             ),
@@ -44,21 +46,30 @@ extension TermsViewModel {
 // MARK: Private
 private extension TermsViewModel {
     func makeElements(
+        activeSubscription: Driver<Bool>,
         terms: Driver<[Term]>,
         didSearch: Signal<String>
-    ) -> Driver<[Term]> {
+    ) -> Driver<[TermsTableElement]> {
         Driver
             .combineLatest(
+                activeSubscription,
                 terms,
                 didSearch.asDriver(onErrorDriveWith: .never())
             )
-            .map { terms, search -> [Term] in
-                guard !search.isEmpty else {
-                    return terms
+            .map { activeSubscription, terms, search -> [TermsTableElement] in
+                var array = terms
+                
+                if !search.isEmpty {
+                    array = array.filter { term -> Bool in
+                        term.name.contains(search)
+                    }
                 }
                 
-                return terms.filter { term -> Bool in
-                    term.name.contains(search)
+                return array.enumerated().map { index, term -> TermsTableElement in
+                    TermsTableElement(
+                        term: term,
+                        locked: (index >= 3) ? !activeSubscription : false
+                    )
                 }
             }
     }
@@ -69,9 +80,17 @@ private extension TermsViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func makeRoute(didSelect: Signal<Term>) -> Driver<Route> {
+    func makeRoute(didSelect: Signal<TermsTableElement>) -> Driver<Route> {
         didSelect
             .asDriver(onErrorDriveWith: .never())
             .map { Route.details($0) }
+    }
+    
+    func makeActiveSubscription() -> Driver<Bool> {
+        PurchaseValidationObserver.shared
+            .didValidatedWithActiveSubscription
+            .map { SessionManager().hasActiveSubscriptions() }
+            .startWith(SessionManager().hasActiveSubscriptions())
+            .asDriver(onErrorJustReturn: false)
     }
 }

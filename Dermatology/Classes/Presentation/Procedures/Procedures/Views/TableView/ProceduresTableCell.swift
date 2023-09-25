@@ -31,8 +31,10 @@ final class ProceduresTableCell: UITableViewCell {
 
 // MARK: Public
 extension ProceduresTableCell {
-    func setup(element: Procedure) {
-        label.attributedText = element.name.attributed(with: attrs)
+    func setup(element: ProceduresTableElement) {
+        label.attributedText = element.procedure.name.attributed(with: attrs)
+        
+        iconView.image = UIImage(named: element.locked ? "Drugs.Paid": "Drugs.Arrow")
     }
 }
 
@@ -51,14 +53,14 @@ private extension ProceduresTableCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20.scale),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -45.scale),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50.scale),
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16.scale),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16.scale)
         ])
         
         NSLayoutConstraint.activate([
-            iconView.widthAnchor.constraint(equalToConstant: 11.scale),
-            iconView.heightAnchor.constraint(equalToConstant: 17.scale),
+            iconView.widthAnchor.constraint(equalToConstant: 24.scale),
+            iconView.heightAnchor.constraint(equalToConstant: 24.scale),
             iconView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             iconView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.scale)
         ])

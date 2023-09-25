@@ -62,9 +62,14 @@ extension DrugsViewController {
     
     func route(_ route: DrugsViewModel.Route) {
         switch route {
-        case .details(let drug):
-            let vc = DrugViewController.make(drug: drug)
-            navigationController?.pushViewController(vc, animated: true)
+        case .details(let element):
+            if element.locked {
+                let vc = PaygateViewController.make()
+                present(vc, animated: true)
+            } else {
+                let vc = DrugViewController.make(drug: element.drug)
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

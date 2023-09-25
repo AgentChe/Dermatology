@@ -62,9 +62,14 @@ extension ProceduresViewController {
     
     func route(_ route: ProceduresViewModel.Route) {
         switch route {
-        case .details(let procedure):
-            let vc = ProcedureViewController.make(procedure: procedure)
-            navigationController?.pushViewController(vc, animated: true)
+        case .details(let element):
+            if element.locked {
+                let vc = PaygateViewController.make()
+                present(vc, animated: true)
+            } else {
+                let vc = ProcedureViewController.make(procedure: element.procedure)
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

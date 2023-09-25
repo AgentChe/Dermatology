@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 
 final class DiseasesTableView: UITableView {
-    lazy var elements = [Disease]()
+    lazy var elements = [DiseasesTableElement]()
     
-    private lazy var didSelectTrigger = PublishRelay<Disease>()
+    private lazy var didSelectTrigger = PublishRelay<DiseasesTableElement>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -27,13 +27,13 @@ final class DiseasesTableView: UITableView {
 
 // MARK: Public
 extension DiseasesTableView {
-    func setup(elements: [Disease]) {
+    func setup(elements: [DiseasesTableElement]) {
         self.elements = elements
         
         reloadData()
     }
     
-    var didSelect: Signal<Disease> {
+    var didSelect: Signal<DiseasesTableElement> {
         didSelectTrigger.asSignal()
     }
 }

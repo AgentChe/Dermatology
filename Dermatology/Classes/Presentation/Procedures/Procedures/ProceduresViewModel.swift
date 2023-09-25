@@ -10,7 +10,7 @@ import RxCocoa
 
 final class ProceduresViewModel {
     enum Route {
-        case details(Procedure)
+        case details(ProceduresTableElement)
     }
     
     private lazy var proceduresManager = ProceduresManager()
@@ -20,19 +20,21 @@ final class ProceduresViewModel {
 extension ProceduresViewModel {
     struct Input {
         let didSearch: Signal<String>
-        let didSelect: Signal<Procedure>
+        let didSelect: Signal<ProceduresTableElement>
     }
     
     struct Output {
-        let elements: Driver<[Procedure]>
+        let elements: Driver<[ProceduresTableElement]>
         let route: Driver<Route>
     }
     
     func configure(input: Input) -> Output {
+        let activeSubscription = makeActiveSubscription()
         let procedures = makeProcedures()
         
         return Output(
             elements: makeElements(
+                activeSubscription: activeSubscription,
                 procedures: procedures,
                 didSearch: input.didSearch
             ),
@@ -44,21 +46,30 @@ extension ProceduresViewModel {
 // MARK: Private
 private extension ProceduresViewModel {
     func makeElements(
+        activeSubscription: Driver<Bool>,
         procedures: Driver<[Procedure]>,
         didSearch: Signal<String>
-    ) -> Driver<[Procedure]> {
+    ) -> Driver<[ProceduresTableElement]> {
         Driver
             .combineLatest(
+                activeSubscription,
                 procedures,
                 didSearch.asDriver(onErrorDriveWith: .never())
             )
-            .map { procedures, search -> [Procedure] in
-                guard !search.isEmpty else {
-                    return procedures
+            .map { activeSubscription, procedures, search -> [ProceduresTableElement] in
+                var array = procedures
+                
+                if !search.isEmpty {
+                    array = array.filter { procedure -> Bool in
+                        procedure.name.contains(search)
+                    }
                 }
                 
-                return procedures.filter { procedure -> Bool in
-                    procedure.name.contains(search)
+                return array.enumerated().map { index, procedure -> ProceduresTableElement in
+                    ProceduresTableElement(
+                        procedure: procedure,
+                        locked: (index >= 3) ? !activeSubscription : false
+                    )
                 }
             }
     }
@@ -69,9 +80,17 @@ private extension ProceduresViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func makeRoute(didSelect: Signal<Procedure>) -> Driver<Route> {
+    func makeRoute(didSelect: Signal<ProceduresTableElement>) -> Driver<Route> {
         didSelect
             .asDriver(onErrorDriveWith: .never())
             .map { Route.details($0) }
+    }
+    
+    func makeActiveSubscription() -> Driver<Bool> {
+        PurchaseValidationObserver.shared
+            .didValidatedWithActiveSubscription
+            .map { SessionManager().hasActiveSubscriptions() }
+            .startWith(SessionManager().hasActiveSubscriptions())
+            .asDriver(onErrorJustReturn: false)
     }
 }

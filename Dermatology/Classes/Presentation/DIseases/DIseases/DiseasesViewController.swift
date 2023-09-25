@@ -62,9 +62,14 @@ extension DiseasesViewController {
     
     func route(_ route: DiseasesViewModel.Route) {
         switch route {
-        case .details(let disease):
-            let vc = DiseaseViewController.make(disease: disease)
-            navigationController?.pushViewController(vc, animated: true)
+        case .details(let element):
+            if element.locked {
+                let vc = PaygateViewController.make()
+                present(vc, animated: true)
+            } else {
+                let vc = DiseaseViewController.make(disease: element.disease)
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

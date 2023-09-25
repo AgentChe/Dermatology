@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 
 final class ProceduresTableView: UITableView {
-    lazy var elements = [Procedure]()
+    lazy var elements = [ProceduresTableElement]()
     
-    private lazy var didSelectTrigger = PublishRelay<Procedure>()
+    private lazy var didSelectTrigger = PublishRelay<ProceduresTableElement>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -27,13 +27,13 @@ final class ProceduresTableView: UITableView {
 
 // MARK: Public
 extension ProceduresTableView {
-    func setup(elements: [Procedure]) {
+    func setup(elements: [ProceduresTableElement]) {
         self.elements = elements
         
         reloadData()
     }
     
-    var didSelect: Signal<Procedure> {
+    var didSelect: Signal<ProceduresTableElement> {
         didSelectTrigger.asSignal()
     }
 }
