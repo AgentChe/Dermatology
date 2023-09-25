@@ -172,15 +172,15 @@
 "Bookmark.Empty.Drugs.Title" = "Nothing here yet";
 "Bookmark.Empty.Drugs.Text" = "Saved drugs will appear here";
 "Bookmark.Empty.Diseases.Title" = "Nothing here yet";
-"Bookmark.Empty.Diseases.Text" = "Saved interactions will appear here";
+"Bookmark.Empty.Diseases.Text" = "Saved diseases will appear here";
 "Bookmark.Empty.Procedures.Title" = "Nothing here yet";
-"Bookmark.Empty.Procedures.Text" = "Saved drags will appear here";
+"Bookmark.Empty.Procedures.Text" = "Saved procedures will appear here";
 "Bookmark.Empty.Interactions.Title" = "Nothing here yet";
 "Bookmark.Empty.Interactions.Text" = "Saved interactions will appear here";
 "Bookmark.Empty.Conditions.Title" = "Nothing here yet";
 "Bookmark.Empty.Conditions.Text" = "Saved conditions will appear here";
 "Bookmark.Empty.Terms.Title" = "Nothing here yet";
-"Bookmark.Empty.Terms.Text" = "Saved drags will appear here";
+"Bookmark.Empty.Terms.Text" = "Saved terms will appear here";
 
 // MARK: Diseases
 "Diseases.Title" = "Diseases Guide";

@@ -23,7 +23,7 @@ struct UnsaveTermRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "terms_ids": ids
+            "dermatologic_terms": ids
         ]
     }
 }

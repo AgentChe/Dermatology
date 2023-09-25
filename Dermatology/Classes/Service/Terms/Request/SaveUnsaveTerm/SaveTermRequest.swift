@@ -23,7 +23,7 @@ struct SaveTermRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "term_id": id
+            "dermatologic_term_id": id
         ]
     }
 }
