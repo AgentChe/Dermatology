@@ -73,7 +73,7 @@ private extension TermViewModel {
                 var result = [DrugTableSection]()
                 
                 let nameSection = DrugTableSection(
-                    opened: false,
+                    opened: true,
                     openedElements: [],
                     closedElements: [
                         .name(term.name)
@@ -103,7 +103,7 @@ private extension TermViewModel {
                     }
 
                     let section = DrugTableSection(
-                        opened: false,
+                        opened: true,
                         openedElements: openedElements,
                         closedElements: [.section(sectionElement), isLast ? nil : .separator].compactMap { $0 }
                     )

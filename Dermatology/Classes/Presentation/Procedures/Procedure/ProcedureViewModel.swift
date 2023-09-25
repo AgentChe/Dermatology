@@ -73,7 +73,7 @@ private extension ProcedureViewModel {
                 var result = [DrugTableSection]()
                 
                 let nameSection = DrugTableSection(
-                    opened: false,
+                    opened: true,
                     openedElements: [],
                     closedElements: [
                         .name(procedure.name)
@@ -103,7 +103,7 @@ private extension ProcedureViewModel {
                     }
 
                     let section = DrugTableSection(
-                        opened: false,
+                        opened: true,
                         openedElements: openedElements,
                         closedElements: [.section(sectionElement), isLast ? nil : .separator].compactMap { $0 }
                     )

@@ -73,7 +73,7 @@ private extension DiseaseViewModel {
                 var result = [DrugTableSection]()
                 
                 let nameSection = DrugTableSection(
-                    opened: false,
+                    opened: true,
                     openedElements: [],
                     closedElements: [
                         .name(disease.name)
@@ -103,7 +103,7 @@ private extension DiseaseViewModel {
                     }
 
                     let section = DrugTableSection(
-                        opened: false,
+                        opened: true,
                         openedElements: openedElements,
                         closedElements: [.section(sectionElement), isLast ? nil : .separator].compactMap { $0 }
                     )
