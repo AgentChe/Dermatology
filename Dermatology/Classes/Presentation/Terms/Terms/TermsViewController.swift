@@ -23,7 +23,7 @@ final class TermsViewController: UIViewController {
         super.viewDidLoad()
         
         AmplitudeManager.shared
-            .logEvent(name: "Terms Guide Screen")
+            .logEvent(name: "Derma Terms Screen")
         
         let output = viewModel.configure(input: TermsViewModel.Input(
             didSearch: mainView.searchView.changedText,

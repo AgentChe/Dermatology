@@ -23,7 +23,7 @@ final class DiseasesViewController: UIViewController {
         super.viewDidLoad()
         
         AmplitudeManager.shared
-            .logEvent(name: "Diseases Guide Screen")
+            .logEvent(name: "Disease Guide Screen")
         
         let output = viewModel.configure(input: DiseasesViewModel.Input(
             didSearch: mainView.searchView.changedText,

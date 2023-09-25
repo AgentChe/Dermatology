@@ -38,7 +38,7 @@ final class ProcedureViewController: UIViewController {
         super.viewDidLoad()
         
         AmplitudeManager.shared
-            .logEvent(name: "Procedure Content Screen")
+            .logEvent(name: "Procedures Guide Screen")
         
         viewModel.tryAgain = { [weak self] error -> Observable<Void> in
             guard let self = self else {
