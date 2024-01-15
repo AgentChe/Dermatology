@@ -133,7 +133,6 @@
 		DEFE83812AA5B1FB00FB96F0 /* PushNotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE821C2AA5B1FB00FB96F0 /* PushNotificationsModel.swift */; };
 		DEFE83822AA5B1FB00FB96F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE821D2AA5B1FB00FB96F0 /* SceneDelegate.swift */; };
 		DEFE83832AA5B1FB00FB96F0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE821E2AA5B1FB00FB96F0 /* Appearance.swift */; };
-		DEFE83842AA5B1FB00FB96F0 /* AppsFlyerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE82202AA5B1FB00FB96F0 /* AppsFlyerManager.swift */; };
 		DEFE83852AA5B1FB00FB96F0 /* BranchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE82212AA5B1FB00FB96F0 /* BranchManager.swift */; };
 		DEFE83862AA5B1FB00FB96F0 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE82222AA5B1FB00FB96F0 /* AmplitudeManager.swift */; };
 		DEFE83872AA5B1FB00FB96F0 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE82232AA5B1FB00FB96F0 /* FirebaseManager.swift */; };
@@ -473,7 +472,6 @@
 		DEFE821C2AA5B1FB00FB96F0 /* PushNotificationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsModel.swift; sourceTree = "<group>"; };
 		DEFE821D2AA5B1FB00FB96F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DEFE821E2AA5B1FB00FB96F0 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		DEFE82202AA5B1FB00FB96F0 /* AppsFlyerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsFlyerManager.swift; sourceTree = "<group>"; };
 		DEFE82212AA5B1FB00FB96F0 /* BranchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DEFE82222AA5B1FB00FB96F0 /* AmplitudeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DEFE82232AA5B1FB00FB96F0 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -1300,7 +1298,6 @@
 		DEFE821F2AA5B1FB00FB96F0 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE82202AA5B1FB00FB96F0 /* AppsFlyerManager.swift */,
 				DEFE82212AA5B1FB00FB96F0 /* BranchManager.swift */,
 				DEFE82222AA5B1FB00FB96F0 /* AmplitudeManager.swift */,
 				DEFE82232AA5B1FB00FB96F0 /* FirebaseManager.swift */,
@@ -2674,7 +2671,6 @@
 				DEB28CBF2AA5FD5E00DA4EF8 /* ProcedureViewModel.swift in Sources */,
 				DEFE84482AA5B1FB00FB96F0 /* OnboardingViewModel.swift in Sources */,
 				DEFE842F2AA5B1FB00FB96F0 /* SCConfirmTableView.swift in Sources */,
-				DEFE83842AA5B1FB00FB96F0 /* AppsFlyerManager.swift in Sources */,
 				DEFE84382AA5B1FB00FB96F0 /* SymptomTagsView.swift in Sources */,
 				DEFE84302AA5B1FB00FB96F0 /* SCConfirmTableElement.swift in Sources */,
 				DEFE83762AA5B1FB00FB96F0 /* NavigationController.swift in Sources */,
