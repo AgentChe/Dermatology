@@ -12,11 +12,8 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "32xQjC9GIHM8NGbK"
     
-    static let appleAppID = "6464321534"
-    
     static let applicationTag = "DERMATOLOGY"
     static let amplitudeApiKey = "0d810afcbd45c0b58a5ed6cd272acfa"
-    static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
     static let termsOfServiceUrl = "https://awesum-apps.com/terms"
     static let privacyPolicyUrl = "https://awesum-apps.com/policy"
